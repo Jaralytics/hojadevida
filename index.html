@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jhon Jaramillo | Analista de Experiencia del Cliente (CX)</title>
+<meta name="description" content="Jhon Jaramillo, Analista de Experiencia del Cliente (CX). IA generativa, Power BI (DAX), SQL, Snowflake, Python, NPS, CSAT, AHT, SLA y análisis de Causa Raíz.">
+<meta name="theme-color" content="#08080a">
+<script>
+/* Marca la pagina como "con JS" solo si no se pide reducir movimiento. */
+(function () {
+  var d = document.documentElement, reduce = false;
+  try { reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
+  if (!reduce) {
+    d.classList.add("js");
+    if ("IntersectionObserver" in window) d.classList.add("anim");
+  }
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#08080a; --bg2:#101013; --fg:#ecebe6; --mut:#92928c; --line:rgba(255,255,255,.1);
+  --acc:#c6f432; --acc-ink:#0b0d02; --red:#ff4a4a;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --body:"Inter","Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Mono",Consolas,monospace;
+  --ease:cubic-bezier(.2,.7,.1,1);
+  --pad:clamp(1.25rem,5vw,4rem);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:400 1rem/1.65 var(--body);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3,p,ul,ol,figure{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:inherit}
+svg{display:block}
+:focus-visible{outline:2px solid var(--acc);outline-offset:3px;border-radius:2px}
+::selection{background:var(--acc);color:var(--acc-ink)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:fixed;left:1rem;top:-4rem;z-index:100;background:var(--acc);color:var(--acc-ink);padding:.6rem 1rem;font-weight:600;text-decoration:none;transition:top .2s}
+.skip:focus{top:1rem}
+
+/* progress + header + dots */
+.progress{position:fixed;inset:0 0 auto 0;height:2px;z-index:60;background:transparent}
+.progress i{display:block;height:100%;background:var(--acc);transform-origin:0 50%;transform:scaleX(0)}
+.top{position:fixed;inset:2px 0 auto 0;z-index:50;display:flex;justify-content:space-between;align-items:center;padding:1rem var(--pad);background:linear-gradient(var(--bg) 40%,transparent);pointer-events:none}
+.top>*{pointer-events:auto}
+.brand{font:700 1.05rem/1 var(--display);letter-spacing:-.02em;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;min-height:44px}
+.brand b{display:inline-grid;place-items:center;width:2rem;height:2rem;border:1px solid var(--line);border-radius:50%;font-size:.78rem;font-weight:700}
+.top-r{display:inline-flex;align-items:center;gap:.6rem}
+.social{display:inline-grid;place-items:center;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:var(--bg);color:var(--fg);transition:background .2s,color .2s}
+.social[hidden]{display:none}
+.social:hover{background:var(--fg);color:var(--bg)}
+.social svg{width:1.05rem;height:1.05rem;fill:currentColor}
+button.social{padding:0;cursor:pointer;font:inherit}
+.social.dl svg{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:square}
+.lang{display:inline-flex;border:1px solid var(--line);border-radius:99px;padding:3px;background:var(--bg)}
+.lang button{font:600 .75rem/1 var(--mono);letter-spacing:.08em;color:var(--mut);background:none;border:0;padding:.65rem .9rem;border-radius:99px;cursor:pointer;min-height:36px}
+.lang button[aria-pressed="true"]{background:var(--fg);color:var(--bg)}
+.lang button:hover:not([aria-pressed="true"]){color:var(--fg)}
+.dots{position:fixed;right:clamp(.8rem,1.8vw,1.6rem);top:50%;transform:translateY(-50%);z-index:40;display:none;flex-direction:column;gap:.15rem}
+.dots a{position:relative;display:grid;place-items:center;width:28px;height:28px;text-decoration:none}
+.dots a::before{content:"";width:7px;height:7px;border-radius:50%;border:1px solid var(--mut);transition:all .3s var(--ease)}
+.dots a[aria-current="true"]::before{background:var(--acc);border-color:var(--acc);transform:scale(1.5)}
+.dots a:hover::before{border-color:var(--fg)}
+.dots .tip{position:absolute;right:100%;margin-right:.4rem;white-space:nowrap;font:500 .72rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--fg);opacity:0;transform:translateX(6px);transition:all .25s var(--ease);pointer-events:none}
+.dots a:hover .tip,.dots a:focus-visible .tip{opacity:1;transform:none}
+@media (min-width:980px){.dots{display:flex}}
+
+/* layout */
+main{display:block}
+.wrap{width:100%;max-width:1240px;margin-inline:auto;padding-inline:var(--pad)}
+section{padding-block:clamp(4.5rem,11vw,8.5rem);position:relative}
+.eyebrow{display:flex;align-items:center;gap:.8rem;font:500 .75rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-bottom:1.5rem}
+.eyebrow span:first-child{color:var(--acc)}
+.eyebrow::after{content:"";height:1px;width:3rem;background:var(--line);order:1}
+.eyebrow span:last-child{order:2}
+h2{font:700 clamp(2rem,5vw,3.75rem)/1.02 var(--display);letter-spacing:-.035em;max-width:18ch;text-wrap:balance}
+.lede{color:var(--mut);max-width:56ch;margin-top:1.25rem;font-size:1.05rem}
+.split{display:grid;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+@media (min-width:860px){.split{grid-template-columns:1.15fr .85fr}.split.rev{grid-template-columns:.85fr 1.15fr}.split.rev .slot{order:-1}}
+
+/* photo slots */
+.slot{position:relative;aspect-ratio:4/5;background:#000;border:1px solid var(--line);overflow:hidden;width:100%;max-width:520px;justify-self:center}
+.slot.wide{aspect-ratio:21/9;max-width:none;margin-top:2.5rem}
+.slot-media{position:absolute;inset:-8% 0;transform:translate3d(0,var(--py,0px),0);will-change:transform}
+.slot-art,.slot img{position:absolute;inset:0;width:100%;height:100%}
+.slot-art{color:rgba(255,255,255,.2)}
+.slot img{object-fit:cover;opacity:0;mix-blend-mode:lighten;transition:opacity 1s var(--ease);-webkit-mask-image:radial-gradient(ellipse 72% 72% at 50% 50%,#000 55%,transparent 100%);mask-image:radial-gradient(ellipse 72% 72% at 50% 50%,#000 55%,transparent 100%)}
+.slot.has-img img{opacity:1}
+.slot.has-img{border-color:transparent;background:transparent}
+.slot.has-img .slot-art,.slot.has-img .cap{display:none}
+.slot .cap{position:absolute;left:.9rem;bottom:.8rem;font:500 .66rem/1 var(--mono);letter-spacing:.12em;color:rgba(255,255,255,.32);text-transform:uppercase}
+.slot .corner{position:absolute;width:14px;height:14px;border:1px solid var(--acc);opacity:.7}
+.slot .corner.tl{left:.7rem;top:.7rem;border-right:0;border-bottom:0}
+.slot .corner.br{right:.7rem;bottom:.7rem;border-left:0;border-top:0}
+.slot.has-img .corner{display:none}
+.anim .slot{clip-path:inset(100% 0 0 0);transition:clip-path 1.3s var(--ease)}
+.anim .slot.in{clip-path:inset(0 0 0 0)}
+.anim .slot .slot-art,.anim .slot img{transform:scale(1.18);transition:transform 1.8s var(--ease),opacity 1s var(--ease)}
+.anim .slot.in .slot-art,.anim .slot.in img{transform:none}
+
+/* reveal */
+.anim .rv{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
+.anim .rv.in{opacity:1;transform:none}
+
+/* hero */
+.hero{min-height:100vh;min-height:100svh;display:flex;align-items:center;padding-block:7rem 4rem}
+.hero{position:relative;overflow:hidden}
+.hero .wrap{position:relative;z-index:1}
+.hero .split{width:100%}
+/* hero photo: right 3/4 of the portrait, pinned bottom-left behind the text, fades out on scroll */
+.hero-ph{--hm:.85;position:absolute;left:0;bottom:0;z-index:0;height:min(90svh,60rem);aspect-ratio:3/5;width:auto;max-width:none;object-fit:cover;object-position:100% 50%;pointer-events:none;user-select:none;opacity:calc(var(--ho,1)*var(--hm));transform:translateY(calc((1 - var(--ho,1))*-48px));transition:opacity .35s linear,transform .35s linear;animation:phIn 1.4s var(--ease) backwards;-webkit-mask-image:linear-gradient(90deg,#000 62%,transparent),linear-gradient(#000 72%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,#000 62%,transparent),linear-gradient(#000 72%,transparent);mask-composite:intersect}
+@keyframes phIn{from{opacity:0}}
+@media (max-width:859px){.hero-ph{--hm:.4;height:min(72svh,44rem)}}
+.hero h1{font:800 clamp(3.6rem,13vw,10.5rem)/.9 var(--display);letter-spacing:-.03em;margin-block:1rem 1.75rem}
+.hero h1 span{display:block}
+.hero h1 span+span{color:transparent;-webkit-text-stroke:1.5px var(--fg)}
+/* hero tool ring: 3D carousel, tiles billboard to the viewer */
+.orb{container-type:inline-size;width:100%;max-width:640px;justify-self:center;perspective:1600px;perspective-origin:50% 40%}
+.ring{position:relative;aspect-ratio:1/.7;margin:0;padding:0;list-style:none;transform-style:preserve-3d;transform:rotateX(-14deg);animation:rSpin 36s linear infinite;will-change:transform}
+.ring li{position:absolute;left:50%;top:50%;width:26cqw;margin:-13cqw 0 0 -13cqw;transform-style:preserve-3d;transform:rotateY(calc(var(--i)*45deg)) translateZ(37cqw)}
+.ti{transform-style:preserve-3d;transform:rotateY(calc(var(--i)*-45deg))}
+.tc{display:flex;flex-direction:column;align-items:center;gap:.7rem;padding:2cqw 1cqw;animation:rBill 36s linear infinite,rFade 36s linear infinite;animation-delay:0s,calc(var(--i)*4.5s - 36s)}
+.tc img{width:17cqw;height:17cqw;object-fit:contain;transition:transform .4s var(--ease)}
+.tc span{font:500 clamp(.52rem,2.2cqw,.74rem)/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mut);white-space:nowrap;transition:color .3s}
+.ring li:hover img{transform:scale(1.12)}
+.ring li:hover span{color:var(--fg)}
+.orb.hold .ring,.orb.hold .tc{animation-play-state:paused}
+.orb-cap{min-height:5.2em;max-width:40ch;margin:.25rem auto 0;text-align:center;font-size:.95rem;line-height:1.5;color:var(--mut)}
+.orb-cap b{display:block;font:500 .7rem/1.9 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--acc)}
+.orb-hint{font:500 .66rem/1.9 var(--mono);letter-spacing:.12em;text-transform:uppercase;opacity:.55}
+.orb-txt,.orb.hold .orb-hint{display:none}
+.orb.hold .orb-txt{display:block}
+@keyframes rSpin{to{transform:rotateX(-14deg) rotateY(-360deg)}}
+@keyframes rBill{to{transform:rotateY(360deg)}}
+@keyframes rFade{0%,100%{opacity:1;visibility:visible}12.5%,87.5%{opacity:.8}25%,75%{opacity:0;visibility:hidden}}
+@media (min-width:860px){.hero .split{grid-template-columns:1fr 1fr}}
+@media (max-width:859px){.orb{max-width:440px}}
+.role{font:600 clamp(1.1rem,2.2vw,1.5rem)/1.2 var(--display);letter-spacing:-.01em;color:var(--acc)}
+.pitch{max-width:44ch;color:var(--mut);font-size:1.1rem;margin-top:1.1rem}
+.meta{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;margin-top:1.75rem;font:500 .78rem/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mut)}
+.hero-ct{display:flex;flex-wrap:wrap;gap:.35rem 1.5rem;margin-top:1rem;font-weight:500}
+.hero-ct a{text-underline-offset:.25em}
+.hero-ct a:hover{color:var(--acc)}
+.actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2.25rem}
+.btn{display:inline-flex;align-items:center;gap:.6rem;font:600 .95rem/1 var(--body);text-decoration:none;padding:1rem 1.5rem;border-radius:99px;border:1px solid var(--line);color:var(--fg);transition:all .3s var(--ease);min-height:48px}
+.btn:hover{border-color:var(--fg)}
+.btn.pri{background:var(--acc);border-color:var(--acc);color:var(--acc-ink)}
+.btn.pri:hover{background:var(--fg);border-color:var(--fg)}
+.btn svg{width:16px;height:16px;transition:transform .3s var(--ease)}
+.btn:hover svg{transform:translate(3px,0)}
+
+/* impact */
+.impact{background:var(--bg2);border-block:1px solid var(--line)}
+.stats{position:relative;display:grid;gap:0;margin-top:clamp(2.5rem,6vw,4.5rem);grid-template-columns:1fr}
+.stat{position:relative;z-index:1;padding-block:2rem;border-top:1px solid var(--line)}
+.stat strong{display:block;font:800 clamp(3.4rem,10vw,6.5rem)/.95 var(--display);letter-spacing:-.05em;color:var(--fg);font-variant-numeric:tabular-nums;white-space:nowrap}
+.stat strong em{font-style:normal;color:var(--acc)}
+.stat p{color:var(--mut);max-width:30ch;margin-top:.9rem}
+@media (min-width:700px){.stats{grid-template-columns:1fr 1fr;column-gap:3rem}}
+@media (min-width:1100px){.stats{grid-template-columns:repeat(4,1fr);column-gap:2rem}.stat strong{font-size:clamp(2.4rem,3.6vw,3.4rem)}}
+
+/* expanders */
+.xbtn{display:inline-flex;align-items:center;gap:.5rem;margin-top:1.4rem;font:600 .85rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--acc);background:none;border:1px solid var(--line);border-radius:99px;padding:.8rem 1.1rem;cursor:pointer;min-height:44px;transition:border-color .3s}
+.xbtn:hover{border-color:var(--acc)}
+.xbtn svg{width:14px;height:14px;transition:transform .4s var(--ease)}
+.xbtn[aria-expanded="true"] svg{transform:rotate(180deg)}
+.js .xbtn{display:inline-flex}
+html:not(.js) .xbtn,html:not(.js) .xall{display:none}
+.more{display:block}
+.js .more{display:grid;grid-template-rows:0fr;visibility:hidden;transition:grid-template-rows .55s var(--ease),visibility 0s .55s}
+.js .more.open{grid-template-rows:1fr;visibility:visible;transition:grid-template-rows .55s var(--ease),visibility 0s}
+.more-in{min-height:0;overflow:hidden}
+.js .more-in{opacity:0;transition:opacity .4s}
+.js .more.open .more-in{opacity:1;transition:opacity .5s .1s}
+.xall{font:600 .8rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--fg);background:none;border:1px solid var(--line);border-radius:99px;padding:.85rem 1.2rem;cursor:pointer;display:inline-flex;gap:.6rem;align-items:center;min-height:44px}
+.xall:hover{border-color:var(--acc);color:var(--acc)}
+
+/* profile */
+.prose p{color:var(--mut);font-size:1.12rem;max-width:58ch}
+.prose p:first-child{color:var(--fg);font-size:clamp(1.25rem,2.4vw,1.6rem);line-height:1.4;font-family:var(--display);letter-spacing:-.015em}
+.prose p+p{margin-top:1.1rem}
+
+/* experience */
+.exp-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:1.5rem}
+.h2row{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem clamp(1.5rem,4vw,3rem)}
+.yt{position:relative;flex:none;width:4.2ch;height:1.2em;font:700 clamp(1.5rem,4vw,2.75rem)/1.2 var(--display);letter-spacing:-.03em;font-variant-numeric:tabular-nums;color:var(--acc)}
+.yt-y{position:absolute;right:0;top:0;white-space:nowrap;transform-origin:right center;will-change:transform,opacity}
+.yt-s{position:absolute;left:-2%;right:-2%;top:54%;height:max(2px,.07em);background:var(--red);border-radius:2px;transform:scaleX(0);transform-origin:left center}
+.tl{position:relative;margin-top:clamp(2.5rem,6vw,4rem);padding-left:clamp(1.4rem,4vw,3rem)}
+.tl::before{content:"";position:absolute;left:5px;top:.5rem;bottom:.5rem;width:1px;background:linear-gradient(var(--acc),var(--line) 30%)}
+.job{position:relative;padding-bottom:clamp(2rem,4vw,3rem)}
+.job:last-child{padding-bottom:0}
+.job::before{content:"";position:absolute;left:calc(-1 * clamp(1.4rem,4vw,3rem));top:.45rem;width:11px;height:11px;border-radius:50%;background:var(--bg);border:1px solid var(--acc)}
+.job:first-child::before{background:var(--acc);box-shadow:0 0 0 5px rgba(198,244,50,.14)}
+.card{border:1px solid var(--line);padding:clamp(1.25rem,3vw,2.25rem);background:linear-gradient(180deg,rgba(255,255,255,.025),transparent);transition:border-color .4s}
+.card:hover{border-color:rgba(255,255,255,.22)}
+.jdate{font:500 .75rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--acc)}
+.job h3{font:700 clamp(1.4rem,3vw,2rem)/1.1 var(--display);letter-spacing:-.025em;margin-top:.8rem}
+.co{color:var(--mut);margin-top:.35rem;font-size:.95rem}
+.sum{margin-top:1rem;max-width:62ch}
+.mets{display:flex;flex-wrap:wrap;gap:1.25rem 2.5rem;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--line)}
+.mets li{min-width:8rem;max-width:14rem}
+.mets strong{display:block;font:800 clamp(1.8rem,4vw,2.6rem)/1 var(--display);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
+.mets span{display:block;color:var(--mut);font-size:.85rem;line-height:1.4;margin-top:.4rem}
+.det{margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--line);display:grid;gap:.9rem}
+.det li{position:relative;padding-left:1.25rem;color:#c9c8c2;max-width:70ch}
+.det li::before{content:"";position:absolute;left:0;top:.75em;width:6px;height:1px;background:var(--acc)}
+.det.x{margin-top:.9rem;padding-top:0;border-top:0}
+.mets+.det{margin-top:0;border-top:0}
+.self{margin-top:clamp(2.5rem,6vw,4rem);max-width:70ch}
+.self .sum{margin-top:0;color:#c9c8c2}
+
+/* skills */
+.chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
+.chips li{border:1px solid var(--line);padding:.7rem 1.1rem;border-radius:99px;font-weight:500;transition:all .3s var(--ease)}
+.chips li:hover{border-color:var(--acc);color:var(--acc)}
+.grp{margin-top:2.25rem}
+.grp h3{font:500 .75rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.skills .chips.big li{position:relative;font:600 clamp(1.05rem,2vw,1.3rem)/1 var(--display);padding:.9rem 1.4rem;cursor:pointer}
+.skills .chips li.on{border-color:var(--acc);color:var(--acc)}
+.sk-cap{position:sticky;bottom:1rem;z-index:2;min-height:5.6em;max-width:52ch;margin-top:1.75rem;padding:.8rem 1.1rem;border:1px solid var(--line);background:var(--bg2);font-size:.95rem;line-height:1.5;color:var(--mut)}
+.sk-cap b{display:block;font:500 .7rem/1.9 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--acc)}
+.sk-hint{font:500 .66rem/1.9 var(--mono);letter-spacing:.12em;text-transform:uppercase;opacity:.55}
+.sk-txt,.skills.hold .sk-hint{display:none}
+.skills.hold .sk-txt{display:block}
+@media (min-width:860px){
+  .sk-cap{position:relative;bottom:auto;display:flex;flex-direction:column;justify-content:center;min-height:clamp(15rem,26vw,20rem);max-width:none;margin:0;padding:clamp(1.5rem,3vw,2.75rem);font:500 clamp(1.1rem,1.6vw,1.4rem)/1.4 var(--display);letter-spacing:-.01em;color:var(--fg)}
+  .sk-cap b{margin-bottom:.9rem;font-size:.75rem;line-height:1}
+  .sk-cap .sk-hint{font-size:.75rem;color:var(--mut);opacity:.8}
+  .sk-cap::before,.sk-cap::after{content:"";position:absolute;width:14px;height:14px;border:1px solid var(--acc);opacity:.7}
+  .sk-cap::before{left:.7rem;top:.7rem;border-right:0;border-bottom:0}
+  .sk-cap::after{right:.7rem;bottom:.7rem;border-left:0;border-top:0}
+}
+
+/* education */
+.cols{display:grid;gap:clamp(2rem,5vw,4rem);margin-top:clamp(2.5rem,6vw,4rem)}
+@media (min-width:860px){.cols{grid-template-columns:1.2fr .8fr}}
+.cols h3.sub{font:500 .75rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin-bottom:1.25rem}
+.course{padding-block:1.25rem;border-top:1px solid var(--line)}
+.course:last-child{border-bottom:1px solid var(--line)}
+.course h4{margin:0;font:700 1.25rem/1.2 var(--display);letter-spacing:-.02em}
+.course p{color:var(--mut);font-size:.92rem;margin-top:.3rem}
+.course .jdate{display:block;margin-top:.7rem}
+
+
+/* contact */
+.contact h2{max-width:12ch;font-size:clamp(2.6rem,8vw,6rem)}
+.clist{margin-top:2.25rem;display:grid;gap:0}
+.clist li{border-top:1px solid var(--line)}
+.clist li:last-child{border-bottom:1px solid var(--line)}
+.clist a,.clist .row{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1.15rem 0;text-decoration:none;flex-wrap:wrap}
+.clist small{font:500 .72rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mut)}
+.clist b{font:600 clamp(1.05rem,2.6vw,1.5rem)/1.2 var(--display);letter-spacing:-.015em;overflow-wrap:anywhere;transition:color .3s}
+.clist a:hover b{color:var(--acc)}
+footer{padding-block:2.5rem;border-top:1px solid var(--line);color:var(--mut);font:500 .75rem/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 2rem}
+
+/* portfolio: carrete 3D */
+.pf{--cw:clamp(240px,46vw,560px);margin-top:clamp(2rem,5vw,3.5rem);outline-offset:-3px}
+.pf:empty{display:none}
+.pf-stage{position:relative;overflow:hidden;perspective:1400px;height:calc(var(--cw)*.625 + 7rem);margin-top:-1.5rem;touch-action:pan-y;cursor:grab;user-select:none;-webkit-user-select:none}
+.pf-stage:active{cursor:grabbing}
+.pf-card{position:absolute;left:50%;top:2.5rem;width:var(--cw);display:block;text-decoration:none;-webkit-user-drag:none;transform:translateX(-50%) translateX(calc(var(--x,0)*1%)) translateZ(calc(var(--a,0)*-110px)) rotateY(calc(var(--s,0)*-46deg)) scale(calc(1 - var(--a,0)*.07));transition:transform .75s var(--ease),opacity .5s var(--ease)}
+.pf-card.off{opacity:0;pointer-events:none}
+/* retroiluminacion: gradiente difuso detras de la miniatura */
+.pf-card::before{content:"";position:absolute;z-index:-1;inset:0 0 auto;aspect-ratio:16/10;background:linear-gradient(120deg,var(--acc),#32e6c8 55%,#3d7bff);filter:blur(26px);transform:scale(1.03);opacity:calc(.14 - var(--a,0)*.04);transition:opacity .6s var(--ease);pointer-events:none}
+.pf-card.on::before{opacity:.05}
+.pf-thumb{position:relative;display:block;aspect-ratio:16/10;overflow:hidden;background:var(--bg2);border:1px solid var(--line);transition:border-color .4s,box-shadow .6s var(--ease)}
+.pf-thumb::after{content:"";position:absolute;inset:0;background:var(--bg);opacity:calc(var(--a,0)*.2);transition:opacity .5s var(--ease);pointer-events:none}
+.pf-thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;-webkit-user-drag:none}
+.pf-fb{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;gap:.4rem;padding:6%;background:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px) 0 0/100% 12.5%,linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px) 0 0/8.33% 100%,var(--bg2)}
+.pf-fb b{font:800 clamp(2rem,6vw,3.6rem)/1 var(--mono);color:var(--acc);letter-spacing:-.04em}
+.pf-fb i{font:600 clamp(.9rem,1.8vw,1.2rem)/1.2 var(--display);font-style:normal;color:var(--fg)}
+.pf-card.on .pf-thumb{border-color:rgba(198,244,50,.55);box-shadow:0 30px 60px -24px rgba(0,0,0,.9),0 0 0 1px rgba(198,244,50,.12)}
+.pf-cap{display:flex;gap:.7rem;align-items:baseline;margin-top:.8rem;min-width:0;opacity:0;transition:opacity .4s var(--ease)}
+.pf-card.on .pf-cap{opacity:1}
+.pf-cap b{font:500 .75rem/1 var(--mono);letter-spacing:.1em;color:var(--acc)}
+.pf-cap span{font:600 .95rem/1.2 var(--display);letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pf-bar{max-width:1240px;margin:1.25rem auto 0;padding-inline:var(--pad);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.25rem 2rem}
+.pf-t{flex:1 1 14rem;font:700 clamp(1.3rem,3vw,2rem)/1.1 var(--display);letter-spacing:-.025em}
+.pf-ctl{display:flex;align-items:center;gap:.9rem}
+.pf-b{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:none;color:var(--fg);cursor:pointer;transition:border-color .3s}
+.pf-b:hover:not(:disabled){border-color:var(--acc);color:var(--acc)}
+.pf-b:disabled{opacity:.3;cursor:default}
+.pf-b svg{width:16px;height:16px}
+.pf-b.prev svg{transform:rotate(180deg)}
+.pf-c{font:500 .8rem/1 var(--mono);letter-spacing:.1em;color:var(--mut);min-width:5.2ch;text-align:center;font-variant-numeric:tabular-nums}
+.pf-list{display:grid;gap:.6rem;margin-top:2rem}
+.pf-list a{color:var(--acc)}
+.pf-print{display:none}
+
+/* data to decisions */
+.d2d-stage{display:grid;place-items:center;width:100%;padding-block:1.5rem}
+.d2d{position:relative;width:14em;height:8.5em;font-size:clamp(1.3rem,2.6vw,2rem)}
+.d2d-box{position:absolute;inset:0 auto 0 50%;transform:translateX(-50%);width:6.5em;border:1px solid var(--line);border-radius:.3em;background:var(--bg2);overflow:hidden}
+.d2d-tb,.d2d-doc{position:absolute;inset:0 auto 0 50%;transform:translateX(-50%);display:grid;padding:.75em}
+.d2d-tb{width:14em;grid-template-columns:repeat(4,1fr);gap:.5em;align-content:space-between;opacity:0}
+.d2d-doc{width:6.5em;gap:.55em;align-content:start;padding-top:1em}
+.d2d-box i{height:.4em;width:var(--w,100%);border-radius:2px;background:var(--mut);opacity:.5}
+.d2d-box i:nth-child(3n){--w:60%}
+.d2d-box i:nth-child(5n){--w:80%}
+.d2d-box i:nth-child(7n){--w:45%}
+.d2d-tb i:nth-child(-n+4){--w:100%;background:var(--acc);opacity:.9}
+.d2d-ok{position:absolute;left:calc(50% + 3.25em);bottom:0;display:grid;place-items:center;width:2.4em;height:2.4em;margin:0 0 -.7em -1.4em;border-radius:50%;background:var(--acc);color:var(--acc-ink);box-shadow:0 0 0 4px var(--bg)}
+.d2d-ok svg{width:1.2em;height:1.2em;fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.anim .d2d-box{animation:d2dBox 9s var(--ease) infinite}
+.anim .d2d-tb{animation:d2dTb 9s var(--ease) infinite}
+.anim .d2d-doc{animation:d2dDoc 9s var(--ease) infinite}
+.anim .d2d-ok{animation:d2dOk 9s var(--ease) infinite}
+.anim .d2d-ok path{stroke-dasharray:24;animation:d2dChk 9s var(--ease) infinite}
+.anim .d2d:not(.in) *{animation-play-state:paused}
+@keyframes d2dBox{0%,42%{width:14em}54%,93%{width:6.5em}100%{width:14em}}
+@keyframes d2dTb{0%{opacity:0;clip-path:inset(0 0 100% 0)}4%{opacity:1}24%{clip-path:inset(0)}42%{opacity:1}50%,100%{opacity:0;clip-path:inset(0)}}
+@keyframes d2dDoc{0%,52%{opacity:0}60%,90%{opacity:1}95%,100%{opacity:0}}
+@keyframes d2dOk{0%,60%{transform:scale(0);opacity:1}66%{transform:scale(1.15)}70%,90%{transform:scale(1);opacity:1}95%,100%{transform:scale(0);opacity:0}}
+@keyframes d2dChk{0%,63%{stroke-dashoffset:24}72%,100%{stroke-dashoffset:0}}
+
+/* reduced motion: everything visible, no animation */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .xbtn,.xall{display:none!important}
+  .ring{aspect-ratio:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;transform:none}
+  .ring li{position:static;width:auto;margin:0;transform:none;opacity:1}
+  .ti{transform:none}
+  .tc img{width:min(11cqw,48px);height:min(11cqw,48px)}
+}
+
+/* curriculum imprimible: una columna, sin imagenes, texto seleccionable (PDF) */
+.cv{display:none}
+@page{size:A4;margin:13mm 15mm}
+@media print{
+  html,body{background:#fff;color:#111}
+  body>*:not(.cv){display:none!important}
+  .cv{display:block;font:400 9.6pt/1.4 Arial,"Segoe UI",Helvetica,sans-serif;color:#111;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .cv,.cv section{padding:0}
+  .cv section+section,.cv-hd+section{margin-top:4.5mm}
+  .cv p,.cv ul{margin:0;padding:0}
+  .cv ul{list-style:none}
+  .cv a{color:inherit;text-decoration:none}
+  .cv-hd{padding-bottom:3mm;border-bottom:.5mm solid #111}
+  .cv-name{font-weight:700;font-size:25pt;line-height:1.1;letter-spacing:-.01em}
+  .cv-role{margin-top:1mm;font-weight:600;font-size:12pt;line-height:1.25;color:#1f4d3a}
+  .cv-ct{display:flex;flex-wrap:wrap;gap:0 5mm;margin-top:2.5mm;font-weight:500}
+  .cv-h{margin:0 0 2mm;padding-bottom:1mm;border-bottom:.3mm solid #111;max-width:none;font:700 9pt/1.2 Arial,"Segoe UI",Helvetica,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#1f4d3a}
+  .cv-job{break-inside:avoid;margin-top:3.2mm}
+  .cv-job:first-of-type{margin-top:0}
+  .cv-jh{display:flex;justify-content:space-between;align-items:baseline;gap:4mm;margin-top:1.2mm}
+  .cv-job .cv-jh{margin-top:0}
+  .cv-jh b{font-weight:700;font-size:10pt}
+  .cv-jh i{font-style:normal;color:#444;white-space:nowrap}
+  .cv-co{font-weight:600;color:#1f4d3a}
+  .cv-job ul{margin-top:1mm}
+  .cv li{position:relative;padding-left:3.5mm}
+  .cv-job li::before{content:"";position:absolute;left:.5mm;top:.55em;width:1.2mm;height:1.2mm;background:#1f4d3a}
+  .cv-sk{margin-top:1.2mm}
+  .cv-sk b{font-weight:700}
+  .cv .cv-full{margin-top:4.5mm;padding-top:2mm;border-top:.3mm solid #111;font-style:italic;color:#444}
+  .cv ul:not(.cv-ct) li{margin-top:.6mm}
+}
+</style>
+</head>
+<body>
+
+<!-- Simbolos SVG reutilizables -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="chev" viewBox="0 0 16 16"><path d="M3 6l5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></symbol>
+  <symbol id="arrow" viewBox="0 0 16 16"><path d="M2 8h12M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/></symbol>
+  <symbol id="motif" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
+    <g fill="none" stroke="currentColor" stroke-width="1">
+      <circle cx="200" cy="250" r="40"/><circle cx="200" cy="250" r="80"/><circle cx="200" cy="250" r="120"/>
+      <circle cx="200" cy="250" r="160"/><circle cx="200" cy="250" r="200" stroke-dasharray="2 6"/>
+      <path d="M0 250h400M200 0v500" stroke-opacity=".6"/>
+      <path d="M0 0l400 500M400 0L0 500" stroke-opacity=".25"/>
+      <path d="M60 440h60M280 60h60" stroke="#c6f432" stroke-opacity=".7"/>
+    </g>
+  </symbol>
+</svg>
+
+<a class="skip" href="#main" data-i18n="skip">Saltar al contenido</a>
+<div class="progress" aria-hidden="true"><i id="bar"></i></div>
+
+<header class="top">
+  <a class="brand" href="#hero" data-i18n-aria="a.home" aria-label="Ir al inicio"><b>JJ</b><span class="sr" data-i18n="a.home">Ir al inicio</span></a>
+  <div class="top-r">
+    <a class="social dl" data-pdf href="Jhon_Jaramillo_CV_ES.pdf" download data-i18n-aria="a.pdf" aria-label="Descargar hoja de vida en PDF"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v8M4.5 6.5L8 10l3.5-3.5M2.5 13.5h11"/></svg></a>
+    <a class="social" id="aLinkedinTop" href="https://www.linkedin.com/in/jhonjaramillo/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+    <div class="lang" role="group" data-i18n-aria="a.lang" aria-label="Idioma">
+      <button type="button" data-lang="es" aria-pressed="true" lang="es" aria-label="Español">ES</button>
+      <button type="button" data-lang="en" aria-pressed="false" lang="en" aria-label="English">EN</button>
+    </div>
+  </div>
+</header>
+
+<nav class="dots" data-i18n-aria="a.sections" aria-label="Secciones">
+  <a href="#hero" data-sec="hero"><span class="tip" data-i18n="nav.hero">Inicio</span></a>
+  <a href="#impact" data-sec="impact"><span class="tip" data-i18n="nav.impact">Impacto</span></a>
+  <a href="#profile" data-sec="profile"><span class="tip" data-i18n="nav.profile">Perfil</span></a>
+  <a href="#experience" data-sec="experience"><span class="tip" data-i18n="nav.exp">Experiencia</span></a>
+  <a href="#portfolio" data-sec="portfolio"><span class="tip" data-i18n="nav.port">Portafolio</span></a>
+  <a href="#skills" data-sec="skills"><span class="tip" data-i18n="nav.skills">Habilidades</span></a>
+  <a href="#education" data-sec="education"><span class="tip" data-i18n="nav.edu">Formación</span></a>
+  <a href="#references" data-sec="references"><span class="tip" data-i18n="nav.refs">Referencias</span></a>
+  <a href="#contact" data-sec="contact"><span class="tip" data-i18n="nav.contact">Contacto</span></a>
+</nav>
+
+<main id="main">
+
+<!-- HERO -->
+<section id="hero" class="hero">
+  <img class="hero-ph" src="img/Fotohojadevida.webp" alt="" aria-hidden="true" width="1122" height="1402" decoding="async" onerror="this.remove()">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <p class="role rv" data-i18n="h.role">Analista de Experiencia del Cliente (CX)</p>
+        <h1 class="rv" style="--d:.1s"><span>Jhon</span><span>Jaramillo</span></h1>
+        <p class="pitch rv" style="--d:.2s" data-i18n="h.pitch">Convierto datos de experiencia del cliente en decisiones y construyo soluciones con IA generativa que automatizan el análisis.</p>
+        <p class="meta rv" style="--d:.3s"><span data-i18n="h.years">10+ años en operaciones de servicio y analítica de datos</span></p>
+        <p class="hero-ct rv" style="--d:.35s"><a href="mailto:Jaralytics@gmail.com">Jaralytics@gmail.com</a><a id="aLinkedinHero" href="https://www.linkedin.com/in/jhonjaramillo/" target="_blank" rel="noopener noreferrer">LinkedIn</a></p>
+        <div class="actions rv" style="--d:.4s">
+          <a class="btn pri" href="#contact"><span data-i18n="h.cta">Contáctame</span><svg aria-hidden="true"><use href="#arrow"/></svg></a>
+          <a class="btn" href="#experience"><span data-i18n="h.cta2">Ver experiencia</span></a>
+          <a class="btn" data-pdf href="Jhon_Jaramillo_CV_ES.pdf" download><span data-i18n="h.pdf">Descargar CV (PDF)</span></a>
+        </div>
+      </div>
+      <div class="orb rv" style="--d:.3s">
+        <ul class="ring" data-i18n-aria="a.tools" aria-label="Herramientas">
+          <li style="--i:0"><div class="ti"><div class="tc"><img src="img/Logos/svg/PowerBI.svg" alt="" width="64" height="64" loading="eager" decoding="async"><span>Power BI</span></div></div><p class="sr" data-i18n="t.d0">Migré un P&amp;L completo a Power BI y diseño tableros que la operación consulta a diario.</p></li>
+          <li style="--i:1"><div class="ti"><div class="tc"><img src="img/Logos/svg/Excel.svg" alt="" width="64" height="64" loading="eager" decoding="async"><span>Excel</span></div></div><p class="sr" data-i18n="t.d1">Con Power Pivot llevé un P&amp;L de un año de rezago a actualización mensual.</p></li>
+          <li style="--i:2"><div class="ti"><div class="tc"><img src="img/Logos/svg/SQLServer.svg" alt="" width="64" height="64" loading="eager" decoding="async"><span>SQL Server</span></div></div><p class="sr" data-i18n="t.d2">Escribo y optimizo las consultas que alimentan la reportería recurrente de la operación.</p></li>
+          <li style="--i:3"><div class="ti"><div class="tc"><img src="img/Logos/svg/Snowflake.svg" alt="" width="64" height="64" loading="eager" decoding="async"><span>Snowflake</span></div></div><p class="sr" data-i18n="t.d3">Modelos de datos y consultas SQL que alimentan los tableros de CX en Rappi.</p></li>
+          <li style="--i:4"><div class="ti"><div class="tc"><img src="img/Logos/svg/Python.svg" alt="" width="64" height="64" loading="eager" decoding="async"><span>Python</span></div></div><p class="sr" data-i18n="t.d4">Scripts que automatizan la extracción, validación y entrega de datos, sin pasos manuales.</p></li>
+          <li style="--i:5"><div class="ti"><div class="tc"><img src="img/Logos/svg/VisualStudioCode.svg" alt="" width="64" height="64" loading="eager" decoding="async"><span>VS Code</span></div></div><p class="sr" data-i18n="t.d5">Mi entorno diario para código, consultas SQL y desarrollo asistido por IA.</p></li>
+          <li style="--i:6"><div class="ti"><div class="tc"><img src="img/Logos/svg/GenIA.svg" alt="" width="64" height="64" loading="eager" decoding="async"><span data-i18n="t.genia">GenIA</span></div></div><p class="sr" data-i18n="t.d6">Lidero el frente de GenAI para Calidad en Rappi: prompts, evaluación y flujos en producción.</p></li>
+          <li style="--i:7"><div class="ti"><div class="tc"><img src="img/Logos/svg/IA.svg" alt="" width="64" height="64" loading="eager" decoding="async"><span data-i18n="t.ia">IA</span></div></div><p class="sr" data-i18n="t.d7">Opero en producción un sistema de Voz del Cliente con IA que identifica causas raíz y oportunidades de mejora para operación y producto.</p></li>
+        </ul>
+        <p class="orb-cap" aria-hidden="true"><span class="orb-hint" data-i18n="t.hint">Pasa el cursor sobre una herramienta</span><span class="orb-txt"></span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IMPACTO -->
+<section id="impact" class="impact">
+  <div class="wrap">
+    <p class="eyebrow rv"><span>01</span><span data-i18n="nav.impact">Impacto</span></p>
+    <h2 class="rv" data-i18n="i.title">Resultados que se pueden medir</h2>
+    <div class="stats">
+      <div class="stat rv"><strong class="cu">450K</strong><p data-i18n="i.1">chats evaluados al mes (100% de cobertura)</p></div>
+      <div class="stat rv" style="--d:.1s"><strong class="cu">30→50%</strong><p data-i18n="i.2">de CSAT en 3 meses</p></div>
+      <div class="stat rv" style="--d:.2s"><strong class="cu">150→400</strong><p data-i18n="i.3">chats evaluados por dólar invertido en el modelo de GenAI</p></div>
+      <div class="stat rv" style="--d:.3s"><strong class="cu">90%</strong><p data-i18n="i.4">de precisión en la evaluación con GenAI</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PERFIL -->
+<section id="profile">
+  <div class="wrap">
+    <div class="split rev">
+      <div class="d2d-stage">
+      <div class="d2d rv" aria-hidden="true">
+        <div class="d2d-box">
+          <div class="d2d-tb"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div class="d2d-doc"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <span class="d2d-ok"><svg viewBox="0 0 16 16" focusable="false"><path d="M3.5 8.5l3 3 6-7"/></svg></span>
+      </div>
+      </div>
+      <div>
+        <p class="eyebrow rv"><span>02</span><span data-i18n="nav.profile">Perfil</span></p>
+        <h2 class="rv" data-i18n="p.title">Convierto datos en decisiones</h2>
+        <div class="prose rv" style="margin-top:1.75rem">
+          <p data-i18n="p.short">Analista de Experiencia del Cliente (CX) con 10+ años en operaciones de servicio y analítica de datos, especializado en IA generativa, modelos financieros y optimización de procesos.</p>
+          <p data-i18n="p.more">Trabajo con Power BI (DAX y modelado de datos), Excel, SQL sobre bases de datos relacionales, Snowflake y Python, y aplico IA generativa a la analítica de experiencia del cliente. Trabajo con métricas e indicadores como NPS, CSAT, AHT y SLA, hago análisis de Causa Raíz y colaboro con stakeholders de operación y producto para apoyar decisiones y reducir costos.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCIA -->
+<section id="experience">
+  <div class="wrap">
+    <div class="exp-head">
+      <div>
+        <p class="eyebrow rv"><span>03</span><span data-i18n="nav.exp">Experiencia</span></p>
+        <div class="h2row">
+          <h2 class="rv" data-i18n="e.title">Más de diez años de crecimiento profesional</h2>
+          <div class="yt rv" id="yt" aria-hidden="true"><span class="yt-y">2026</span></div>
+        </div>
+        <p class="lede rv" data-i18n="e.intro">Más de diez años en operaciones de servicio y analítica de datos: de asesor de servicio al cliente en Accedo Colombia a CX Analyst en Rappi, hoy enfocado en IA generativa.</p>
+      </div>
+      <button class="xall rv" type="button" id="xall" aria-pressed="false"><span id="xalllbl" data-i18n="all.open">Expandir todo</span></button>
+    </div>
+
+    <figure class="slot wide" data-photo="experience" aria-hidden="true">
+      <div class="slot-media"><svg class="slot-art"><use href="#motif"/></svg></div>
+      <span class="corner tl"></span><span class="corner br"></span>
+      <span class="cap">img/experience.jpg</span>
+    </figure>
+
+    <ol class="tl">
+      <!-- 7 -->
+      <li class="job rv"><article class="card">
+        <p class="jdate" data-i18n="d7">Diciembre 2025 – Actualidad</p>
+        <h3 data-i18n="j7.t">CX Analyst</h3>
+        <p class="co">Rappi Colombia</p>
+        <p class="sum" data-i18n="j7.s">Analítica de experiencia del cliente, automatización de procesos y líder del frente de IA generativa para Calidad. Cuenta con un sistema de Voz del Cliente con IA en producción, que identifica causas raíz y oportunidades de mejora para operación y producto.</p>
+        <ul class="det">
+          <li data-i18n="j7.b1">Lidero la evaluación de Calidad con GenAI: el 100% de los chats (450 mil al mes) queda evaluado, cuando con evaluadores humanos solo era posible revisar una muestra. Equivale a 37.500 horas de evaluación manual al mes (5 minutos por chat) y aplica un criterio uniforme en todos los chats.</li>
+          <li data-i18n="j7.b2">Los analistas de Calidad dejaron de auditar chats uno a uno: ahora calibran y afinan los resultados del modelo hasta alcanzar 90% de precisión y se enfocan en temas de mayor valor para Calidad.</li>
+          <li data-i18n="j7.b3">Costo del modelo de GenAI optimizado: de 150 a 400 chats evaluados por dólar, es decir 2,7 veces más rendimiento y 62% menos costo por chat.</li>
+        </ul>
+        <button class="xbtn" type="button" aria-expanded="false" aria-controls="j7m"><span data-i18n="btn.more">Ver más</span><svg aria-hidden="true"><use href="#chev"/></svg></button>
+        <div class="more" id="j7m"><div class="more-in"><ul class="det x">
+          <li data-i18n="j7.b4">CSAT de 30% a 50% en 3 meses, con análisis de Voz del Cliente (VoC) y de causa raíz trabajados con stakeholders de operación y producto.</li>
+          <li data-i18n="j7.b5">Tableros de Power BI (SQL sobre Snowflake, DAX y modelado de datos) que los equipos de operación y Calidad usan a diario.</li>
+        </ul></div></div>
+      </article></li>
+      <!-- 6 -->
+      <li class="job rv"><article class="card">
+        <p class="jdate" data-i18n="d6">Febrero 2024 – Diciembre 2025</p>
+        <h3 data-i18n="j6.t">RX Analyst (Rappi Experience)</h3>
+        <p class="co" data-i18n="j6.c">BRM (proveedor externo) · Servicio directo a Rappi</p>
+        <p class="sum" data-i18n="j6.s">Analista dedicado a Rappi: dashboards en Power BI y Excel, consultas SQL y automatización de reportes para la operación.</p>
+        <ul class="det">
+          <li data-i18n="j6.b1">Diseñé, publiqué y mantuve dashboards en Power BI y Excel usados por la operación para el seguimiento de indicadores.</li>
+          <li data-i18n="j6.b2">Creé, optimicé y modifiqué consultas SQL que alimentan la reportería recurrente.</li>
+          <li data-i18n="j6.b4">Automaticé reportes y tareas recurrentes en Excel, Power BI y SQL, reduciendo el trabajo manual y los errores operativos.</li>
+        </ul>
+        <button class="xbtn" type="button" aria-expanded="false" aria-controls="j6m"><span data-i18n="btn.more">Ver más</span><svg aria-hidden="true"><use href="#chev"/></svg></button>
+        <div class="more" id="j6m"><div class="more-in"><ul class="det x">
+          <li data-i18n="j6.b3">Aseguré la continuidad y calidad de los reportes existentes, corrigiendo fuentes y lógica de cálculo.</li>
+        </ul></div></div>
+      </article></li>
+      <!-- 1 -->
+      <li class="job rv"><article class="card">
+        <p class="jdate" data-i18n="d1">Abril 2021 – Febrero 2024</p>
+        <h3 data-i18n="j1.t">Analista de Negocios Senior</h3>
+        <p class="co">Accedo Colombia, Pereira</p>
+        <p class="sum" data-i18n="j1.s">Análisis de negocio, modelos financieros y Power BI, con autoridad de decisión sobre la rentabilidad de clientes y la reportería financiera.</p>
+        <ul class="mets">
+          <li><strong class="cu">+10%</strong><span data-i18n="j1.m1">ingresos recuperados</span></li>
+          <li><strong>P&amp;L</strong><span data-i18n="j1.m2">migrado a Power BI</span></li>
+          <li><strong data-i18n="j1.m3v">1.º</strong><span data-i18n="j1.m3">modelo de rentabilidad de clientes</span></li>
+        </ul>
+        <ul class="det">
+          <li data-i18n="j1.b3">Construí un documento consolidado de todas las facturas de la compañía, integrado a Power BI. Dejó en evidencia las discrepancias mes a mes y permitió recuperar más del 10% de los ingresos perdidos por errores en el proceso de facturación.</li>
+          <li data-i18n="j1.b1">Automaticé procesos de análisis y reporte con scripts, más robustos que mis primeras automatizaciones en Excel y VBA: tareas que tomaban 3-4 horas pasaron a 10-20 minutos (90-95% menos tiempo por proceso).</li>
+          <li data-i18n="j1.b2">Migré el P&amp;L a Power BI: diseñé un modelo de datos que interconecta bases de datos de varias fuentes y genera métricas como Agent Revenue, Agent Cost, Hiring Cost per Agent y variación porcentual frente a meses anteriores, usadas para encontrar y corregir oportunidades de mejora.</li>
+        </ul>
+        <button class="xbtn" type="button" aria-expanded="false" aria-controls="j1m"><span data-i18n="btn.more">Ver más</span><svg aria-hidden="true"><use href="#chev"/></svg></button>
+        <div class="more" id="j1m"><div class="more-in"><ul class="det x">
+          <li data-i18n="j1.b4">Desarrollé modelos financieros para evaluar la rentabilidad de clientes potenciales. Este proceso no existía y se convirtió en el marco para juzgar la viabilidad de nuevos negocios.</li>
+        </ul></div></div>
+      </article></li>
+      <!-- 2 -->
+      <li class="job rv"><article class="card">
+        <p class="jdate" data-i18n="d2">Diciembre 2019 – Abril 2021</p>
+        <h3 data-i18n="j2.t">Controller Corporativo</h3>
+        <p class="co">Accedo Colombia, Pereira</p>
+        <p class="sum" data-i18n="j2.s">Analicé los indicadores de cinco ciudades y construí los modelos de ingresos, personal y P&amp;L que redujeron pérdidas y aumentaron las utilidades.</p>
+        <ul class="mets">
+          <li><strong class="cu">10–15%</strong><span data-i18n="j2.m1">aumento de utilidades</span></li>
+          <li><strong class="cu">5</strong><span data-i18n="j2.m2">ciudades analizadas</span></li>
+          <li><strong data-i18n="j2.m3v">Mensual</strong><span data-i18n="j2.m3">actualización del P&amp;L (antes, un año de rezago)</span></li>
+        </ul>
+        <ul class="det">
+          <li data-i18n="j2.b2">Creé un documento consolidado de todas las líneas de negocio que estimaba los ingresos mensuales para detectar oportunidades y corregir problemas a tiempo; esto redujo las pérdidas y aumentó las utilidades de la compañía entre un 10% y un 15%.</li>
+          <li data-i18n="j2.b4">Migré el P&amp;L de un archivo estático de Excel a un documento dinámico en Power Pivot: la actualización pasó de un año de rezago a una actualización mensual, con mayor precisión y visibilidad para la gerencia.</li>
+        </ul>
+        <button class="xbtn" type="button" aria-expanded="false" aria-controls="j2m"><span data-i18n="btn.more">Ver más</span><svg aria-hidden="true"><use href="#chev"/></svg></button>
+        <div class="more" id="j2m"><div class="more-in"><ul class="det x">
+          <li data-i18n="j2.b3">Desarrollé un documento integral de gestión de personal: analizaba las necesidades de plantilla por línea de negocio y emitía instrucciones de contratación. Dio visibilidad corporativa del headcount y sincronizó a las áreas: Talent Acquisition (distribución de clases y capacidad de contratación), Training (recursos para las próximas clases), Operaciones (alinear el headcount para estrategias de reducción de costos o productividad) y reportes a la gerencia.</li>
+        </ul></div></div>
+      </article></li>
+      <!-- 3 -->
+      <li class="job rv"><article class="card">
+        <p class="jdate" data-i18n="d3">Mayo 2019 – Diciembre 2019</p>
+        <h3 data-i18n="j3.t">Líder de WFM</h3>
+        <p class="co">Accedo Colombia, Pereira</p>
+        <p class="sum" data-i18n="j3.s">Lideré al equipo de Real-Time Analysts (RTAs) y fui el punto de contacto con el liderazgo de operaciones y con las áreas de WFM de los clientes.</p>
+        <ul class="det">
+          <li data-i18n="j3.b1">Lideré a los Real-Time Analysts (RTAs) y desarrollé mis habilidades de liderazgo.</li>
+          <li data-i18n="j3.b2">Mantuve comunicación constante con las áreas de WFM de los clientes sobre avances, desafíos y retroalimentación.</li>
+          <li data-i18n="j3.b3">Fui el punto de contacto con el liderazgo de operaciones y presenté los resultados del área en reuniones periódicas.</li>
+        </ul>
+        <button class="xbtn" type="button" aria-expanded="false" aria-controls="j3m"><span data-i18n="btn.more">Ver más</span><svg aria-hidden="true"><use href="#chev"/></svg></button>
+        <div class="more" id="j3m"><div class="more-in"><ul class="det x">
+          <li data-i18n="j3.b4">Inicié reuniones mensuales para reconocer el desempeño sobresaliente, dar retroalimentación y recoger ideas para mejorar los procesos del área y de la compañía.</li>
+        </ul></div></div>
+      </article></li>
+      <!-- 4 -->
+      <li class="job rv"><article class="card">
+        <p class="jdate" data-i18n="d4">Febrero 2016 – Mayo 2019</p>
+        <h3 data-i18n="j4.t">Analista de Tiempo Real (RTA)</h3>
+        <p class="co">Accedo Colombia, Pereira</p>
+        <p class="sum" data-i18n="j4.s">Me uní al equipo de WFM y automaticé procesos manuales con macros y VBA, hasta convertirme en la persona de referencia en herramientas.</p>
+        <ul class="mets">
+          <li><strong class="cu">30→&lt;1 min</strong><span data-i18n="j4.m1">en tareas automatizadas</span></li>
+          <li><strong class="cu">99%</strong><span data-i18n="j4.m2">menos errores</span></li>
+          <li><strong class="cu">60→95%</strong><span data-i18n="j4.m3">aprobación de solicitudes</span></li>
+        </ul>
+        <ul class="det">
+          <li data-i18n="j4.b2">Todo era manual: aprendí macros y automaticé tareas de copiar y pegar entre documentos con Excel y VBA. Los procesos pasaron de 30 minutos a menos de 1 minuto y los errores se redujeron un 99%.</li>
+          <li data-i18n="j4.b4">Automaticé la generación de entre 500 y 700 horarios distintos a partir del plan de demanda del cliente y las restricciones legales y de la compañía (jornada, descansos y almuerzo): la revisión pasó de 2 días a unas 3-4 horas.</li>
+          <li data-i18n="j4.b3">Rediseñé el proceso de vacaciones y permisos con formularios de Excel y VBA, detectando inconsistencias en las solicitudes de los agentes con retroalimentación inmediata: el tiempo de respuesta pasó de una semana a minutos y la tasa de aprobación de 60% a 95%.</li>
+        </ul>
+        <button class="xbtn" type="button" aria-expanded="false" aria-controls="j4m"><span data-i18n="btn.more">Ver más</span><svg aria-hidden="true"><use href="#chev"/></svg></button>
+        <div class="more" id="j4m"><div class="more-in"><ul class="det x">
+          <li data-i18n="j4.b5">Construí documentos de seguimiento de horarios en tiempo real, con actualización cada minuto: intervalo actual, quién está en descanso o almuerzo y quién está por iniciar o terminar su turno.</li>
+          <li data-i18n="j4.b6">Fui coautor del 90% de los reportes existentes de la compañía.</li>
+        </ul></div></div>
+      </article></li>
+      <!-- 5 -->
+      <li class="job rv"><article class="card">
+        <p class="jdate" data-i18n="d5">Julio 2015 – Febrero 2016</p>
+        <h3 data-i18n="j5.t">Asesor de Servicio al Cliente</h3>
+        <p class="co">Accedo Colombia, Pereira</p>
+        <p class="sum" data-i18n="j5.s">Atendí solicitudes de clientes de una importante empresa de telecomunicaciones de Estados Unidos.</p>
+        <ul class="det">
+          <li data-i18n="j5.b1">Atendí diversas solicitudes de clientes de una importante empresa de telecomunicaciones de Estados Unidos.</li>
+          <li data-i18n="j5.b2">Organicé y di seguimiento a las consultas y comentarios de los clientes para mejorar los procesos de servicio.</li>
+        </ul>
+      </article></li>
+    </ol>
+  </div>
+</section>
+
+<!-- PORTAFOLIO -->
+<section id="portfolio">
+  <div class="wrap">
+    <p class="eyebrow rv"><span>04</span><span data-i18n="nav.port">Portafolio</span></p>
+    <h2 class="rv" data-i18n="pf.title">Proyectos que puedes explorar</h2>
+    <p class="lede rv" data-i18n="pf.lede">Ocho proyectos publicados. Gira el carrete y abre cualquiera para verlo en vivo.</p>
+  </div>
+  <div class="pf rv" id="pf" role="region" aria-roledescription="carousel" data-i18n-aria="a.carousel" aria-label="Portafolio de proyectos" tabindex="0"></div>
+  <div class="wrap">
+    <noscript><ul class="pf-list">
+      <li><a href="dashboards/01-monitor-transacciones.html" target="_blank" rel="noopener noreferrer">01 Monitor de transacciones</a></li>
+      <li><a href="dashboards/02-conciliacion-ach.html" target="_blank" rel="noopener noreferrer">02 Conciliación ACH</a></li>
+      <li><a href="dashboards/03-forex-eurusd.html" target="_blank" rel="noopener noreferrer">03 Forex EUR/USD</a></li>
+      <li><a href="dashboards/04-voz-del-cliente.html" target="_blank" rel="noopener noreferrer">04 Voz del cliente (VOC)</a></li>
+      <li><a href="dashboards/05-retail-ventas-inventario.html" target="_blank" rel="noopener noreferrer">05 Retail: ventas e inventario</a></li>
+      <li><a href="dashboards/06-fidelizacion.html" target="_blank" rel="noopener noreferrer">06 Fidelización</a></li>
+      <li><a href="dashboards/07-contratacion-publica.html" target="_blank" rel="noopener noreferrer">07 Contratación pública</a></li>
+      <li><a href="https://rubik.jaralytics.com/#3x3/cfop-cruz-01" target="_blank" rel="noopener noreferrer">08 Cubo paso a paso</a></li>
+    </ul></noscript>
+    <ul class="pf-print" id="pfPrint"></ul>
+  </div>
+</section>
+
+<!-- HABILIDADES -->
+<section id="skills" class="skills">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <p class="eyebrow rv"><span>05</span><span data-i18n="nav.skills">Habilidades</span></p>
+        <h2 class="rv" data-i18n="k.title">Habilidades y herramientas</h2>
+        <div class="grp rv">
+          <h3 data-i18n="k.tools">Competencias clave</h3>
+          <ul class="chips big">
+            <li tabindex="0"><span data-i18n="k.math">Razonamiento analítico</span><span class="sr" data-i18n="k.d0">Descompongo un problema en reglas claras: así automaticé la generación de 500 a 700 horarios con restricciones legales y de demanda.</span></li>
+            <li tabindex="0"><span>Microsoft Excel</span><span class="sr" data-i18n="k.d1">Tablas dinámicas, Power Pivot y fórmulas avanzadas: fui coautor del 90% de los reportes de la compañía donde crecí como analista.</span></li>
+            <li tabindex="0"><span>Power BI</span><span class="sr" data-i18n="k.d2">Integré toda la facturación en un modelo de Power BI: las discrepancias quedaron a la vista y se recuperó más del 10% de los ingresos.</span></li>
+            <li tabindex="0"><span>SQL</span><span class="sr" data-i18n="k.d3">Escribo y optimizo las consultas que alimentan la reportería recurrente, reduciendo tiempos de ejecución y actualización.</span></li>
+            <li tabindex="0"><span data-i18n="k.vba">VBA (macros de Excel)</span><span class="sr" data-i18n="k.d4">Macros que llevaron tareas de 30 minutos a menos de 1, con 99% menos de errores.</span></li>
+            <li tabindex="0"><span>Python</span><span class="sr" data-i18n="k.d5">Scripts que limpian, cruzan y validan datos, y automatizan procesos de punta a punta sin pasos manuales.</span></li>
+            <li tabindex="0"><span data-i18n="k.genai">IA generativa</span><span class="sr" data-i18n="k.d6">Lidero el frente de GenAI para Calidad en Rappi: del diseño de prompts a flujos en producción que analizan interacciones de clientes.</span></li>
+            <li tabindex="0"><span data-i18n="k.auto">Automatización de procesos</span><span class="sr" data-i18n="k.d7">Solicitudes que tardaban una semana pasaron a resolverse en minutos; la revisión de horarios, de 2 días a 3-4 horas.</span></li>
+            <li tabindex="0"><span data-i18n="k.tools2">Creación de herramientas</span><span class="sr" data-i18n="k.d8">De scripts a aplicaciones completas: herramientas internas que reemplazan tareas manuales y ocho proyectos publicados en mi portafolio.</span></li>
+            <li tabindex="0"><span data-i18n="k.proc">Mejora y optimización de procesos</span><span class="sr" data-i18n="k.d9">Rediseñé el proceso de vacaciones y permisos: la tasa de aprobación subió de 60% a 95%.</span></li>
+            <li tabindex="0"><span>Prompt engineering</span><span class="sr" data-i18n="k.d10">Diseño y evalúo prompts hasta que el modelo responde de forma consistente: es la base de los flujos de GenAI que llevo a producción.</span></li>
+            <li tabindex="0"><span>Claude Code</span><span class="sr" data-i18n="k.d11">Llevo proyectos del diseño al despliegue: yo defino el problema y valido el resultado, la IA acelera la construcción.</span></li>
+            <li tabindex="0"><span>Codex</span><span class="sr" data-i18n="k.d12">Segunda opinión para mi código: contrasto soluciones entre modelos antes de dar un cambio por bueno.</span></li>
+            <li tabindex="0"><span>Git / GitHub</span><span class="sr" data-i18n="k.d13">Cada proyecto con historial, ramas y revisión de cambios: trabajo que otra persona puede auditar y continuar.</span></li>
+            <li tabindex="0"><span>Jenkins</span><span class="sr" data-i18n="k.d14">Despliegues automatizados: cada cambio aprobado se publica sin pasos manuales.</span></li>
+            <li tabindex="0"><span>Snowflake</span><span class="sr" data-i18n="k.d15">En Rappi construyo sobre Snowflake los modelos de datos y consultas que alimentan los tableros de CX.</span></li>
+          </ul>
+        </div>
+        <div class="grp rv">
+          <h3 data-i18n="k.metrics">Métricas y conceptos</h3>
+          <ul class="chips">
+            <li>NPS</li><li>CSAT</li><li>AHT</li><li>SLA</li>
+            <li data-i18n="k.rca">Análisis de Causa Raíz</li>
+            <li data-i18n="k.voc">Voz del Cliente (VoC)</li>
+            <li>Stakeholders</li><li>DAX</li>
+            <li data-i18n="k.dm">Modelado de datos</li>
+            <li data-i18n="k.rdb">Bases de datos relacionales</li>
+          </ul>
+        </div>
+        <div class="grp rv">
+          <h3 data-i18n="k.lang">Idiomas</h3>
+          <ul class="chips big">
+            <li tabindex="0"><span data-i18n="k.es">Español</span><span class="sr" data-i18n="k.l0">Lengua materna: presento resultados y hallazgos con claridad ante operación y gerencia.</span></li>
+            <li tabindex="0"><span data-i18n="k.en">Inglés B2 (conversación y escritura), idioma de trabajo desde 2015</span><span class="sr" data-i18n="k.l1">Empecé en 2015 atendiendo en inglés a clientes de una telecom de EE. UU. y desde entonces lo uso en el trabajo.</span></li>
+          </ul>
+        </div>
+      </div>
+      <p class="sk-cap" aria-hidden="true"><span class="sk-hint" data-i18n="k.hint">Pasa el cursor o toca una habilidad</span><span class="sk-txt"></span></p>
+    </div>
+  </div>
+</section>
+
+<!-- FORMACION -->
+<section id="education">
+  <div class="wrap">
+    <p class="eyebrow rv"><span>06</span><span data-i18n="nav.edu">Formación</span></p>
+    <h2 class="rv" data-i18n="ed.title">Formación y cursos</h2>
+    <div class="cols">
+      <div class="rv">
+        <h3 class="sub" data-i18n="ed.h">Educación</h3>
+        <article class="card">
+          <p class="jdate" data-i18n="ed.date">Enero 2011 – Diciembre 2012</p>
+          <h3 style="font:700 clamp(1.4rem,3vw,2rem)/1.1 var(--display);letter-spacing:-.025em;margin-top:.8rem" data-i18n="ed.degree">Técnico Profesional en Mecatrónica</h3>
+          <p class="co">Universidad Tecnológica de Pereira</p>
+          <button class="xbtn" type="button" aria-expanded="false" aria-controls="edmore"><span data-i18n="btn.more">Ver más</span><svg aria-hidden="true"><use href="#chev"/></svg></button>
+          <div class="more" id="edmore"><div class="more-in"><p class="sum" style="margin-top:1.25rem" data-i18n="ed.desc">Campo interdisciplinario que combina ingeniería mecánica, electrónica, informática e ingeniería de control para diseñar sistemas inteligentes.</p></div></div>
+        </article>
+      </div>
+      <div class="rv" style="--d:.1s">
+        <h3 class="sub" data-i18n="ed.courses">Cursos</h3>
+        <div class="course"><h4>SAP Business One</h4><p>Heinsohn</p><span class="jdate" data-i18n="c2.d">Julio 2022 – Septiembre 2022</span></div>
+      </div>
+    </div>
+    <div class="self rv">
+      <h3 class="sub" data-i18n="ed.selfh">Formación autodidacta</h3>
+      <p class="sum" data-i18n="ed.self">Mi aprendizaje ha sido aplicado en producción. Adopté de forma temprana herramientas emergentes (IA generativa, asistentes de código, Snowflake y automatización) cuando aún no existían rutas formales de certificación, y las llevé a sistemas en uso con resultados medibles. El Técnico Profesional en Mecatrónica es mi base técnica.</p>
+      <p class="sum" style="margin-top:1rem" data-i18n="ed.cert">Certificados de estudio disponibles en la hoja de vida completa, a solicitud.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REFERENCIAS -->
+<section id="references">
+  <div class="wrap">
+    <p class="eyebrow rv"><span>07</span><span data-i18n="nav.refs">Referencias</span></p>
+    <h2 class="rv" data-i18n="r.title">Referencias a solicitud</h2>
+    <p class="lede rv" data-i18n="r.note">Referencias laborales disponibles a solicitud, por correo.</p>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <p class="eyebrow rv"><span>08</span><span data-i18n="nav.contact">Contacto</span></p>
+        <h2 class="rv" data-i18n="ct.title">Hablemos</h2>
+        <p class="lede rv" data-i18n="ct.text">Si te interesa conversar sobre análisis de datos, IA generativa o experiencia del cliente, escríbeme.</p>
+        <p class="sum rv" style="margin-top:1rem" data-i18n="cv.full">Esta es una versión resumida de mi hoja de vida. Para recibir la versión completa, agradezco contactarme al correo Jaralytics@gmail.com.</p>
+        <ul class="clist rv">
+          <li><a href="mailto:Jaralytics@gmail.com"><small data-i18n="ct.email">Correo</small><b>Jaralytics@gmail.com</b></a></li>
+          <li id="liLinkedin"><a id="aLinkedin" href="https://www.linkedin.com/in/jhonjaramillo/" target="_blank" rel="noopener noreferrer"><small>LinkedIn</small><b>linkedin.com/in/jhonjaramillo</b></a></li>        </ul>
+      </div>
+      <figure class="slot" data-photo="contact" aria-hidden="true">
+        <div class="slot-media"><svg class="slot-art"><use href="#motif"/></svg></div>
+        <span class="corner tl"></span><span class="corner br"></span>
+        <span class="cap">img/contact.jpg</span>
+      </figure>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer><div class="wrap"><span>Jhon Jaramillo</span></div></footer>
+
+<!-- CV imprimible (PDF): una columna, sin imagenes, texto seleccionable -->
+<section class="cv">
+  <header class="cv-hd">
+    <p class="cv-name">Jhon Jaramillo</p>
+    <p class="cv-role" data-i18n="h.role">Analista de Experiencia del Cliente (CX)</p>
+    <ul class="cv-ct">
+      <li><a href="mailto:Jaralytics@gmail.com">Jaralytics@gmail.com</a></li>      <li id="cvLi"><a id="cvLinkedin" href="https://www.linkedin.com/in/jhonjaramillo/">linkedin.com/in/jhonjaramillo</a></li>
+    </ul>
+  </header>
+  <section>
+    <h2 class="cv-h" data-i18n="cv.sum">Resumen</h2>
+    <p data-i18n="cv.pitch">10+ años en operaciones de servicio y analítica de datos. Hoy lidero el frente de IA generativa para Calidad en Rappi, donde el 100% de los chats (450 mil al mes) se evalúa con GenAI. Trabajo con NPS, CSAT, AHT y SLA, análisis de Causa Raíz, DAX, modelado de datos y bases de datos relacionales, junto a stakeholders de operación y producto.</p>
+  </section>
+  <section>
+    <h2 class="cv-h" data-i18n="nav.exp">Experiencia</h2>
+    <article class="cv-job">
+      <p class="cv-jh"><span><b data-i18n="j7.t">CX Analyst</b> · <span class="cv-co">Rappi Colombia</span></span><i data-i18n="d7">Diciembre 2025 – Actualidad</i></p>
+      <ul>
+        <li data-i18n="cv.7a">Evaluación de Calidad con GenAI: el 100% de los chats (450 mil al mes) queda evaluado, cuando con evaluadores humanos solo era posible revisar una muestra; equivale a 37.500 horas de evaluación manual al mes (5 minutos por chat).</li>
+        <li data-i18n="cv.7e">Los analistas de Calidad pasaron de auditar chats uno a uno a calibrar el modelo hasta alcanzar 90% de precisión, con un criterio uniforme en todos los chats.</li>
+        <li data-i18n="cv.7b">Costo del modelo de GenAI optimizado: de 150 a 400 chats evaluados por dólar, es decir 2,7 veces más rendimiento y 62% menos costo por chat.</li>
+        <li data-i18n="cv.7c">CSAT de 30% a 50% en 3 meses, con Voz del Cliente (VoC) en producción, análisis de causa raíz y trabajo con stakeholders de operación y producto.</li>
+        <li data-i18n="cv.7d">Tableros de Power BI (SQL sobre Snowflake, DAX, modelado de datos) usados a diario por los equipos de operación y Calidad.</li>
+      </ul>
+    </article>
+    <article class="cv-job">
+      <p class="cv-jh"><span><b data-i18n="j6.t">RX Analyst (Rappi Experience)</b> · <span class="cv-co" data-i18n="j6.c">BRM (proveedor externo) · Servicio directo a Rappi</span></span><i data-i18n="d6">Febrero 2024 – Diciembre 2025</i></p>
+      <ul>
+        <li data-i18n="cv.6a">Diseñé y mantuve dashboards en Power BI y Excel que la operación usó para seguir sus indicadores.</li>
+        <li data-i18n="cv.6b">Creé y optimicé consultas SQL para reportería recurrente y automaticé reportes y tareas en Excel, Power BI y SQL.</li>
+      </ul>
+    </article>
+    <article class="cv-job">
+      <p class="cv-jh"><span><b data-i18n="j1.t">Analista de Negocios Senior</b> · <span class="cv-co">Accedo Colombia</span></span><i data-i18n="d1">Abril 2021 – Febrero 2024</i></p>
+      <ul>
+        <li data-i18n="cv.1a">Recuperé más del 10% de los ingresos perdidos por errores de facturación con un consolidado de todas las facturas integrado a Power BI.</li>
+        <li data-i18n="cv.1c">Automaticé con scripts procesos de análisis y reporte: de 3-4 horas a 10-20 minutos (90-95% menos tiempo por proceso).</li>
+        <li data-i18n="cv.1b">Migré el P&amp;L a Power BI y creé el primer modelo financiero de rentabilidad de clientes potenciales.</li>
+      </ul>
+    </article>
+    <article class="cv-job">
+      <p class="cv-jh"><span><b data-i18n="j2.t">Controller Corporativo</b> · <span class="cv-co">Accedo Colombia</span></span><i data-i18n="d2">Diciembre 2019 – Abril 2021</i></p>
+      <ul>
+        <li data-i18n="cv.2a">Creé un consolidado de ingresos mensuales de todas las líneas de negocio en cinco ciudades que redujo pérdidas y aumentó las utilidades entre un 10% y un 15%.</li>
+        <li data-i18n="cv.2b">Migré el P&amp;L a Power Pivot: de un año de rezago a actualización mensual.</li>
+      </ul>
+    </article>
+    <article class="cv-job">
+      <p class="cv-jh"><span><b data-i18n="j3.t">Líder de WFM</b> · <span class="cv-co">Accedo Colombia</span></span><i data-i18n="d3">Mayo 2019 – Diciembre 2019</i></p>
+      <ul>
+        <li data-i18n="cv.3">Lideré al equipo de Real-Time Analysts (RTAs) y fui el punto de contacto con el liderazgo de operaciones.</li>
+        <li data-i18n="cv.3b">Presenté los resultados del área en reuniones periódicas y mantuve comunicación constante con las áreas de WFM de los clientes.</li>
+        <li data-i18n="cv.3c">Inicié reuniones mensuales de reconocimiento y retroalimentación para mejorar los procesos del área.</li>
+      </ul>
+    </article>
+    <article class="cv-job">
+      <p class="cv-jh"><span><b data-i18n="j4.t">Analista de Tiempo Real (RTA)</b> · <span class="cv-co">Accedo Colombia</span></span><i data-i18n="d4">Febrero 2016 – Mayo 2019</i></p>
+      <ul>
+        <li data-i18n="cv.4">Automaticé con macros y VBA tareas manuales de copiar y pegar: de 30 minutos a menos de 1 minuto y 99% menos errores.</li>
+        <li data-i18n="cv.4b">Generación automática de 500 a 700 horarios según el plan de demanda del cliente y las restricciones legales y de la compañía: la revisión pasó de 2 días a 3-4 horas.</li>
+        <li data-i18n="cv.4c">Rediseñé el proceso de vacaciones y permisos: la tasa de aprobación pasó de 60% a 95%.</li>
+        <li data-i18n="cv.4d">Documentos de seguimiento de horarios en tiempo real, con actualización cada minuto.</li>
+      </ul>
+    </article>
+    <article class="cv-job">
+      <p class="cv-jh"><span><b data-i18n="j5.t">Asesor de Servicio al Cliente</b> · <span class="cv-co">Accedo Colombia</span></span><i data-i18n="d5">Julio 2015 – Febrero 2016</i></p>
+      <ul>
+        <li data-i18n="cv.5">Atendí solicitudes de clientes de una importante empresa de telecomunicaciones de Estados Unidos.</li>
+        <li data-i18n="cv.5b">Organicé y di seguimiento a consultas y comentarios de los clientes para mejorar los procesos de servicio.</li>
+      </ul>
+    </article>
+  </section>
+  <section>
+    <h2 class="cv-h" data-i18n="nav.skills">Habilidades</h2>
+    <p class="cv-sk"><b data-i18n="cv.g1">Datos y analítica</b>: <span data-i18n="cv.s1">Power BI, DAX, modelado de datos, Microsoft Excel, SQL, bases de datos relacionales, Snowflake, Python, VBA (macros de Excel)</span></p>
+    <p class="cv-sk"><b data-i18n="cv.g2">IA y desarrollo</b>: <span data-i18n="cv.s2">IA generativa, prompt engineering, Claude Code, Codex, Git / GitHub, Jenkins</span></p>
+    <p class="cv-sk"><b data-i18n="cv.g3">Métricas y CX</b>: <span data-i18n="cv.s3">NPS, CSAT, AHT, SLA, Voz del Cliente (VoC), análisis de Causa Raíz, stakeholders</span></p>
+    <p class="cv-sk"><b data-i18n="cv.g4">Procesos</b>: <span data-i18n="cv.s4">Automatización de procesos, herramientas internas, mejora y optimización de procesos, razonamiento analítico</span></p>
+  </section>
+  <section>
+    <h2 class="cv-h" data-i18n="nav.edu">Formación</h2>
+    <p class="cv-jh"><span><b data-i18n="ed.degree">Técnico Profesional en Mecatrónica</b> · <span class="cv-co">Universidad Tecnológica de Pereira</span></span><i data-i18n="ed.date">Enero 2011 – Diciembre 2012</i></p>
+    <p class="cv-jh"><span><b>SAP Business One</b> · <span class="cv-co">Heinsohn</span></span><i data-i18n="c2.d">Julio 2022 – Septiembre 2022</i></p>
+    <p class="cv-sk"><b data-i18n="ed.selfh">Formación autodidacta</b>: <span data-i18n="ed.self">Mi aprendizaje ha sido aplicado en producción. Adopté de forma temprana herramientas emergentes (IA generativa, asistentes de código, Snowflake y automatización) cuando aún no existían rutas formales de certificación, y las llevé a sistemas en uso con resultados medibles. El Técnico Profesional en Mecatrónica es mi base técnica.</span></p>
+    <p class="cv-sk" data-i18n="ed.cert">Certificados de estudio disponibles en la hoja de vida completa, a solicitud.</p>
+  </section>
+  <section>
+    <h2 class="cv-h" data-i18n="k.lang">Idiomas</h2>
+    <ul>
+      <li><span data-i18n="k.es">Español</span> · <span data-i18n="cv.l0">lengua materna</span></li>
+      <li data-i18n="k.en">Inglés B2 (conversación y escritura), idioma de trabajo desde 2015</li>
+    </ul>
+  </section>
+  <p class="cv-full" data-i18n="cv.full">Esta es una versión resumida de mi hoja de vida. Para recibir la versión completa, agradezco contactarme al correo Jaralytics@gmail.com.</p>
+</section>
+
+<script>
+(function () {
+"use strict";
+
+/* ==========================================================================
+   CONFIGURACION DE FOTOS  (editar aqui)
+   Escribe la ruta de cada foto, por ejemplo: hero: "img/hero.jpg".
+   Si queda vacia ("") o la imagen no carga, se muestra el recuadro decorativo.
+   Usa fotos con fondo NEGRO para que se fundan con la pagina. Ver img/LEEME.txt
+   ========================================================================== */
+const PHOTOS = {
+  hero: "",        // ej. "img/hero.jpg"
+  profile: "",     // ej. "img/profile.jpg"
+  experience: "",  // ej. "img/experience.jpg"  (horizontal 21:9)
+  skills: "",      // ej. "img/skills.jpg"
+  contact: ""      // ej. "img/contact.jpg"
+};
+
+/* ==========================================================================
+   PORTAFOLIO  (editar aqui)
+   Un proyecto por linea: n = numero, img = captura 16:10 (1280x800),
+   url = enlace al dashboard, es/en = titulo. Si la imagen no carga se
+   muestra un panel con el numero y el titulo.
+   ========================================================================== */
+const PROJECTS = [
+  { n: "01", img: "img/portfolio/01.jpg", url: "dashboards/01-monitor-transacciones.html", es: "Monitor de transacciones", en: "Transaction monitor" },
+  { n: "02", img: "img/portfolio/02.jpg", url: "dashboards/02-conciliacion-ach.html", es: "Conciliación ACH", en: "ACH reconciliation" },
+  { n: "03", img: "img/portfolio/03.jpg", url: "dashboards/03-forex-eurusd.html", es: "Forex EUR/USD", en: "Forex EUR/USD" },
+  { n: "04", img: "img/portfolio/04.jpg", url: "dashboards/04-voz-del-cliente.html", es: "Voz del cliente (VOC)", en: "Voice of the customer (VOC)" },
+  { n: "05", img: "img/portfolio/05.jpg", url: "dashboards/05-retail-ventas-inventario.html", es: "Retail: ventas e inventario", en: "Retail: sales and inventory" },
+  { n: "06", img: "img/portfolio/06.jpg", url: "dashboards/06-fidelizacion.html", es: "Fidelización", en: "Loyalty" },
+  { n: "07", img: "img/portfolio/07.jpg", url: "dashboards/07-contratacion-publica.html", es: "Contratación pública", en: "Public procurement" },
+  { n: "08", img: "img/portfolio/08.jpg", url: "https://rubik.jaralytics.com/#3x3/cfop-cruz-01", es: "Cubo paso a paso", en: "Rubik's cube, step by step" }
+];
+
+/* URL de LinkedIn. Dejar "" para ocultar los enlaces. */
+const LINKEDIN_URL = "https://www.linkedin.com/in/jhonjaramillo/";
+
+/* Anos de experiencia que se muestran en los textos. */
+const YEARS_EXP = "10+";
+
+/* ==========================================================================
+   TRADUCCIONES. El espanol es el texto original dentro del HTML (se lee al
+   cargar); aqui solo se define el ingles. Los textos usan {years}.
+   ========================================================================== */
+const T = { es: {}, en: {
+  "title": "Jhon Jaramillo | CX Analyst",
+  "meta": "Jhon Jaramillo, CX Analyst. Generative AI, Power BI (DAX), SQL, Snowflake, Python, NPS, CSAT, AHT, SLA and root cause analysis.",
+  "skip": "Skip to content",
+  "a.home": "Go to top", "a.pdf": "Download résumé as PDF", "a.lang": "Language", "a.sections": "Sections",
+  "nav.hero": "Home", "nav.impact": "Impact", "nav.profile": "Profile", "nav.exp": "Experience",
+  "nav.port": "Portfolio", "pf.title": "Projects you can explore",
+  "pf.lede": "Eight published projects. Browse the carousel and open any of them live.",
+  "pf.open": "View project", "pf.prev": "Previous project", "pf.next": "Next project", "a.carousel": "Project portfolio", "a.tools": "Tools", "t.genia": "GenAI", "t.ia": "AI", "t.hint": "Hover over a tool",
+  "t.d0": "I migrated a full P&L to Power BI and design dashboards that operations check daily.", "t.d1": "With Power Pivot I took a P&L from a one-year lag to monthly updates.",
+  "t.d2": "I write and optimize the queries that feed operations' recurring reporting.", "t.d3": "Data models and SQL queries that feed the CX dashboards at Rappi.",
+  "t.d4": "Scripts that automate data extraction, validation and delivery, with no manual steps.", "t.d5": "My daily environment for code, SQL queries and AI-assisted development.",
+  "t.d6": "I lead the GenAI workstream for Quality at Rappi: prompts, evaluation and production flows.", "t.d7": "I run an AI-powered Voice of the Customer system in production that identifies root causes and improvement opportunities for operations and product.",
+  "nav.skills": "Skills", "nav.edu": "Education", "nav.refs": "References", "nav.contact": "Contact",
+  "h.role": "Customer Experience (CX) Analyst",
+  "h.pitch": "I turn customer experience data into decisions and build generative AI solutions that automate the analysis.",
+  "h.years": "{years} years in service operations and data analytics",
+  "h.cta": "Get in touch", "h.cta2": "View experience", "h.pdf": "Download CV (PDF)",
+  "i.title": "Results you can measure",
+  "i.1": "chats evaluated per month (100% coverage)",
+  "i.2": "CSAT in 3 months",
+  "i.3": "chats evaluated per dollar invested in the GenAI model",
+  "i.4": "accuracy in GenAI evaluation",
+  "p.title": "I turn data into decisions",
+  "p.short": "Customer Experience (CX) Analyst with {years} years in service operations and data analytics, specializing in generative AI, financial modeling and process optimization.",
+  "p.more": "I work with Power BI (DAX and data modeling), Excel, SQL on relational databases, Snowflake and Python, and apply generative AI to customer experience analytics. I work with metrics and indicators such as NPS, CSAT, AHT and SLA, run root cause analysis, and partner with operations and product stakeholders to support decisions and reduce costs.",
+  "btn.more": "Show more", "btn.less": "Show less", "all.open": "Expand all", "all.close": "Collapse all",
+  "e.title": "Over ten years of professional growth",
+  "e.intro": "Over ten years in service operations and data analytics: from customer service advisor at Accedo Colombia to CX Analyst at Rappi, now focused on generative AI.",
+  "d7": "December 2025 – Present", "d6": "February 2024 – December 2025",
+  "j7.t": "CX Analyst",
+  "j7.s": "Customer experience analytics, process automation and leadership of the generative AI workstream for Quality. Runs an AI-powered Voice of the Customer system in production that identifies root causes and improvement opportunities for operations and product.",
+  "j7.b1": "Lead GenAI-based Quality evaluation: 100% of chats (450K per month) are evaluated, where human evaluators could only review a sample. That equals 37,500 hours of manual evaluation per month (5 minutes per chat), and the same criterion applies to every chat.",
+  "j7.b2": "Quality analysts stopped auditing chats one by one: they now calibrate and tune the model results to reach 90% accuracy, and focus on higher-value Quality topics.",
+  "j7.b3": "Optimized the GenAI model cost: from 150 to 400 chats evaluated per dollar, which is 2.7 times the throughput and 62% less cost per chat.",
+  "j7.b4": "CSAT up from 30% to 50% in 3 months, with Voice of the Customer (VoC) and root cause analysis done with operations and product stakeholders.",
+  "j7.b5": "Power BI dashboards (SQL on Snowflake, DAX and data modeling) used daily by the operations and Quality teams.",
+  "j6.t": "RX Analyst (Rappi Experience)", "j6.c": "BRM (third-party provider) · Dedicated to Rappi",
+  "j6.s": "Analyst dedicated to Rappi: Power BI and Excel dashboards, SQL queries and report automation for operations.",
+  "j6.b1": "Designed, published and maintained Power BI and Excel dashboards used by operations to track key indicators.",
+  "j6.b2": "Created, optimized and modified SQL queries feeding recurring reporting.",
+  "j6.b3": "Ensured continuity and quality of existing reports, fixing data sources and calculation logic.",
+  "j6.b4": "Automated recurring reports and tasks in Excel, Power BI and SQL, reducing manual work and operational errors.",
+  "d1": "April 2021 – February 2024", "d2": "December 2019 – April 2021", "d3": "May 2019 – December 2019",
+  "d4": "February 2016 – May 2019", "d5": "July 2015 – February 2016",
+  "j1.t": "Senior Business Analyst",
+  "j1.s": "Business analysis, financial modeling and Power BI, with decision-making authority over client profitability and financial reporting.",
+  "j1.m1": "revenue recovered", "j1.m2": "migrated to Power BI", "j1.m3v": "First", "j1.m3": "client profitability model",
+  "j1.b1": "Automated analysis and reporting processes with scripts, more robust than my earlier Excel and VBA automations: tasks that took 3-4 hours now take 10-20 minutes (90-95% less time per process).",
+  "j1.b2": "Migrated the P&L to Power BI: designed a data model interconnecting databases from several sources, producing metrics such as Agent Revenue, Agent Cost, Hiring Cost per Agent and % variation vs previous months, used to find and fix improvement opportunities.",
+  "j1.b3": "Built a consolidated document of all company invoices, integrated into Power BI. It exposed month-to-month discrepancies and led to over 10% revenue recovery from billing process errors.",
+  "j1.b4": "Developed financial models to assess the profitability of potential clients. This process did not exist before and became the framework for judging the viability of new business.",
+  "j2.t": "Corporate Controller",
+  "j2.s": "Analyzed indicators across five cities and built the revenue, workforce and P&L models that reduced losses and increased profits.",
+  "j2.m1": "profit increase", "j2.m2": "cities analyzed", "j2.m3v": "Monthly", "j2.m3": "P&L refresh (previously a one-year lag)",
+  "j2.b2": "Created a consolidated document across business lines estimating monthly revenue to spot opportunities and fix issues early; it reduced losses and increased company profits by 10% to 15%.",
+  "j2.b3": "Developed a comprehensive personnel management document: analyzed workforce needs per business line and issued hiring instructions. It gave corporate visibility of headcount and synchronized departments: Talent Acquisition (class distribution and hiring capacity), Training (resources for upcoming classes), Operations (aligning headcount for cost reduction or productivity strategies) and management reporting.",
+  "j2.b4": "Moved the P&L from a static Excel file to a dynamic Power Pivot document: updates went from a one-year lag to monthly refresh, with better accuracy and visibility for management.",
+  "j3.t": "WFM Lead",
+  "j3.s": "Led the Real-Time Analysts (RTAs) and was the point of contact with operations leadership and clients' WFM divisions.",
+  "j3.b1": "Led the Real-Time Analysts (RTAs) and developed my leadership skills.",
+  "j3.b2": "Ongoing communication with clients' WFM divisions about progress, challenges and client feedback.",
+  "j3.b3": "Point of contact with operations leadership, presenting department results in regular meetings.",
+  "j3.b4": "Started monthly meetings to recognize outstanding performance, give feedback and collect ideas to improve department and company processes.",
+  "j4.t": "Real-Time Analyst (RTA)",
+  "j4.s": "Joined the WFM team and automated manual processes with macros and VBA, becoming the team's go-to person for tools.",
+  "j4.m1": "on automated tasks", "j4.m2": "fewer errors", "j4.m3": "request approval",
+  "j4.b2": "Everything was manual: I learned macros and automated copy/paste tasks across documents with Excel and VBA. Processes went from 30 minutes to under 1 minute and errors dropped by 99%.",
+  "j4.b3": "Rebuilt the vacation and leave process with Excel forms and VBA, detecting inconsistencies in agent requests with immediate feedback: response time went from a week to minutes and the approval rate from 60% to 95%.",
+  "j4.b4": "Automated schedule generation for 500-700 distinct schedules using client demand plus legal and company constraints, including work hours, breaks and lunch: review time went from 2 days to about 3-4 hours.",
+  "j4.b5": "Built real-time schedule tracking documents refreshing every minute: current interval, who is on break or lunch, and who is about to start or end a shift.",
+  "j4.b6": "Co-authored 90% of the company's existing reports.",
+  "j5.t": "Customer Service Advisor",
+  "j5.s": "Handled customer requests for a major US telecommunications company.",
+  "j5.b1": "Handled diverse customer requests for a major US telecommunications company.",
+  "j5.b2": "Organized and tracked customer inquiries and feedback to improve service processes.",
+  "k.title": "Skills and tools", "k.tools": "Core competencies", "k.math": "Analytical reasoning",
+  "k.auto": "Process automation", "k.tools2": "Internal tooling", "k.proc": "Process improvement and optimization",
+  "k.vba": "VBA (Excel Macros)", "k.genai": "Generative AI", "k.lang": "Languages", "k.es": "Spanish", "k.en": "English B2 (speaking and writing), working language since 2015",
+  "k.metrics": "Metrics and concepts", "k.rca": "Root Cause Analysis", "k.dm": "Data modeling", "k.rdb": "Relational databases", "k.voc": "Voice of the Customer (VoC)",
+  "k.hint": "Hover over or tap a skill",
+  "k.d0": "I break a problem down into clear rules: that is how I automated the generation of 500 to 700 schedules under legal and demand constraints.",
+  "k.d1": "Pivot tables, Power Pivot and advanced formulas: I co-authored 90% of the reports at the company where I grew as an analyst.",
+  "k.d2": "I brought all invoicing into one Power BI model: the discrepancies became visible and more than 10% of revenue was recovered.",
+  "k.d3": "I write and optimize the queries that feed recurring reporting, cutting run and refresh times.",
+  "k.d4": "Macros that took 30-minute tasks down to under 1, with 99% fewer errors.",
+  "k.d5": "Scripts that clean, join and validate data, and automate processes end to end with no manual steps.",
+  "k.d6": "I lead the GenAI workstream for Quality at Rappi: from prompt design to production flows that analyze customer interactions.",
+  "k.d7": "Requests that took a week are now resolved in minutes; schedule review went from 2 days to 3-4 hours.",
+  "k.d8": "From scripts to full applications: internal tools that replace manual tasks and eight published projects in my portfolio.",
+  "k.d9": "I redesigned the leave and time-off process: the approval rate rose from 60% to 95%.",
+  "k.d10": "I design and evaluate prompts until the model responds consistently: it is the basis of the GenAI flows I take to production.",
+  "k.d11": "I take projects from design to deployment: I define the problem and validate the result, AI speeds up the build.",
+  "k.d12": "A second opinion on my code: I compare solutions across models before signing off a change.",
+  "k.d13": "Every project with history, branches and change review: work someone else can audit and pick up.",
+  "k.d14": "Automated deployments: every approved change ships without manual steps.",
+  "k.d15": "At Rappi I build on Snowflake the data models and queries that feed the CX dashboards.",
+  "k.l0": "Native language: I present results and findings clearly to operations and management.",
+  "k.l1": "I started in 2015 serving customers of a US telecom in English and have used it at work ever since.",
+  "ed.title": "Education and courses", "ed.h": "Education", "ed.date": "January 2011 – December 2012",
+  "ed.degree": "Technical degree in Mechatronics",
+  "ed.desc": "An interdisciplinary field combining mechanical engineering, electronics, computer science and control engineering to design intelligent systems.",
+  "ed.courses": "Courses", "c2.d": "July 2022 – September 2022",
+  "ed.cert": "Study certificates available in the full resume, on request.",
+  "cv.full": "This is an abridged version of my résumé. To receive the full version, please contact me at Jaralytics@gmail.com.",
+  "ed.selfh": "Self-directed learning",
+  "ed.self": "My learning has been applied in production. I was an early adopter of emerging tools (generative AI, coding assistants, Snowflake and automation) before formal certification paths existed, and took them into systems in use with measurable results. My Technical degree in Mechatronics remains my technical foundation.",
+  "r.title": "References on request",
+  "r.note": "Work references available on request, by email.",
+  "ct.title": "Let's talk",
+  "ct.text": "If you want to talk about data analysis, generative AI or customer experience, get in touch.",
+  "cv.sum": "Summary",
+  "cv.pitch": "{years} years in service operations and data analytics. Today I lead the generative AI workstream for Quality at Rappi, where 100% of chats (450K per month) are evaluated with GenAI. I work with NPS, CSAT, AHT and SLA, root cause analysis, DAX, data modeling and relational databases, alongside operations and product stakeholders.",
+  "cv.7a": "GenAI-based Quality evaluation: 100% of chats (450K per month) are evaluated, where human evaluators could only review a sample; equivalent to 37,500 hours of manual evaluation per month (5 minutes per chat).",
+  "cv.7e": "Quality analysts moved from auditing chats one by one to calibrating the model up to 90% accuracy, with the same criterion applied to every chat.",
+  "cv.7b": "GenAI model cost optimized: from 150 to 400 chats evaluated per dollar, which is 2.7 times the throughput and 62% less cost per chat.",
+  "cv.7c": "CSAT up from 30% to 50% in 3 months, with Voice of the Customer (VoC) in production, root cause analysis and work with operations and product stakeholders.",
+  "cv.7d": "Power BI dashboards (SQL on Snowflake, DAX, data modeling) used daily by the operations and Quality teams.",
+  "cv.6a": "Designed and maintained Power BI and Excel dashboards that operations used to track its indicators.",
+  "cv.6b": "Created and optimized SQL queries for recurring reporting and automated reports and tasks in Excel, Power BI and SQL.",
+  "cv.1a": "Recovered over 10% of revenue lost to billing errors with a consolidated document of all invoices integrated into Power BI.",
+  "cv.1c": "Automated analysis and reporting processes with scripts: from 3-4 hours to 10-20 minutes (90-95% less time per process).",
+  "cv.1b": "Migrated the P&L to Power BI and built the first financial model for potential-client profitability.",
+  "cv.2a": "Created a consolidated monthly revenue document across all business lines in five cities that reduced losses and increased profits by 10% to 15%.",
+  "cv.2b": "Moved the P&L to Power Pivot: from a one-year lag to monthly refresh.",
+  "cv.3": "Led the Real-Time Analysts (RTAs) and was the point of contact with operations leadership.",
+  "cv.3b": "Presented department results in regular meetings and kept ongoing communication with clients WFM divisions.",
+  "cv.3c": "Started monthly recognition and feedback meetings to improve department processes.",
+  "cv.4": "Automated manual copy/paste tasks with macros and VBA: from 30 minutes to under 1 minute and 99% fewer errors.",
+  "cv.4b": "Automated generation of 500 to 700 schedules from the client demand plan and legal and company constraints: review time went from 2 days to 3-4 hours.",
+  "cv.4d": "Real-time schedule tracking documents refreshing every minute.",
+  "cv.4c": "Redesigned the vacation and leave process: the approval rate went from 60% to 95%.",
+  "cv.5": "Handled customer requests for a major US telecommunications company.",
+  "cv.5b": "Organized and tracked customer inquiries and feedback to improve service processes.",
+  "cv.g1": "Data and analytics", "cv.g2": "AI and development", "cv.g3": "Metrics and CX", "cv.g4": "Process", "cv.l0": "native",
+  "cv.s1": "Power BI, DAX, data modeling, Microsoft Excel, SQL, relational databases, Snowflake, Python, VBA (Excel macros)",
+  "cv.s2": "Generative AI, prompt engineering, Claude Code, Codex, Git / GitHub, Jenkins",
+  "cv.s3": "NPS, CSAT, AHT, SLA, Voice of the Customer (VoC), root cause analysis, stakeholders",
+  "cv.s4": "Process automation, internal tooling, process improvement and optimization, analytical reasoning",
+  "ct.email": "Email"
+}};
+
+/* Atajos */
+const $ = (s, r) => (r || document).querySelector(s);
+const $$ = (s, r) => Array.prototype.slice.call((r || document).querySelectorAll(s));
+const reduce = (function () { try { return window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { return false; } })();
+const hasIO = "IntersectionObserver" in window;
+
+/* ---------- i18n ---------- */
+// Captura el espanol desde el HTML
+T.es.title = document.title;
+T.es.meta = $('meta[name="description"]').getAttribute("content");
+$$("[data-i18n]").forEach(function (el) {
+  const k = el.getAttribute("data-i18n");
+  if (!(k in T.es)) T.es[k] = el.textContent.trim().replace(/10\+/g, "{years}");
+});
+$$("[data-i18n-aria]").forEach(function (el) {
+  const k = el.getAttribute("data-i18n-aria");
+  if (!(k in T.es)) T.es[k] = el.getAttribute("aria-label");
+});
+T.es["btn.less"] = "Ver menos";
+T.es["all.close"] = "Contraer todo";
+T.es["btn.more"] = T.es["btn.more"] || "Ver más";
+T.es["pf.open"] = "Ver proyecto";
+T.es["pf.prev"] = "Proyecto anterior";
+T.es["pf.next"] = "Proyecto siguiente";
+
+function tr(l, k) {
+  const v = T[l][k];
+  if (v === undefined) { if (window.console) console.warn("Falta traduccion:", l, k); return null; }
+  return v.replace(/\{years\}/g, YEARS_EXP);
+}
+
+let lang = "es";
+let pfUpdate = null; // lo define el carrete del portafolio
+function applyLang(l) {
+  lang = l;
+  document.documentElement.lang = l;
+  const t = tr(l, "title"); if (t) document.title = t;
+  $$("[data-i18n]").forEach(function (el) {
+    const v = tr(l, el.getAttribute("data-i18n"));
+    if (v !== null) el.textContent = v;
+  });
+  $$("[data-i18n-aria]").forEach(function (el) {
+    const v = tr(l, el.getAttribute("data-i18n-aria"));
+    if (v !== null) el.setAttribute("aria-label", v);
+  });
+  $$("[data-lang]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.getAttribute("data-lang") === l)); });
+  const md = $('meta[name="description"]'), mt = tr(l, "meta");
+  if (md && mt) md.setAttribute("content", mt);
+  $$("[data-pdf]").forEach(function (a) { a.setAttribute("href", "Jhon_Jaramillo_CV_" + l.toUpperCase() + ".pdf"); });
+  try { localStorage.setItem("lang", l); } catch (e) {}
+  if (pfUpdate) pfUpdate();
+}
+let saved = null;
+try { saved = localStorage.getItem("lang"); } catch (e) {}
+const nav = (navigator.language || navigator.userLanguage || "es").toLowerCase();
+/* Idioma: ?lang=en | ?lang=es tiene prioridad (lo usa la generacion de los PDF) */
+let qp = null;
+try { qp = (new URLSearchParams(window.location.search).get("lang") || "").toLowerCase().slice(0, 2); } catch (e) {}
+applyLang(qp === "en" || qp === "es" ? qp : saved === "en" || saved === "es" ? saved : (nav.indexOf("en") === 0 ? "en" : "es"));
+$$("[data-lang]").forEach(function (b) {
+  b.addEventListener("click", function () { applyLang(b.getAttribute("data-lang")); });
+});
+
+/* ---------- Descarga en PDF: los enlaces [data-pdf] apuntan al PDF del idioma activo (ver applyLang) ---------- */
+
+/* ---------- LinkedIn (visible por defecto; se oculta si LINKEDIN_URL queda vacia) ---------- */
+["aLinkedin", "aLinkedinTop", "aLinkedinHero", "cvLinkedin"].forEach(function (id) {
+  const a = document.getElementById(id); if (!a) return;
+  if (LINKEDIN_URL) a.setAttribute("href", LINKEDIN_URL);
+  else (a.closest("li") || a).hidden = true;
+});
+
+/* ---------- Portafolio (carrete 3D) ---------- */
+(function () {
+  const host = $("#pf"), list = $("#pfPrint");
+  if (!host || !PROJECTS.length) return;
+  const n = PROJECTS.length;
+  let cur = Math.floor(n / 2); // arranca en el centro para ver tarjetas a ambos lados
+  const pad = function (v) { return (v < 10 ? "0" : "") + v; };
+  host.innerHTML =
+    '<div class="pf-stage"></div>' +
+    '<div class="pf-bar">' +
+      '<strong class="pf-t"></strong>' +
+      '<div class="pf-ctl">' +
+        '<button class="pf-b prev" type="button"><svg aria-hidden="true"><use href="#arrow"/></svg></button>' +
+        '<span class="pf-c"></span>' +
+        '<button class="pf-b next" type="button"><svg aria-hidden="true"><use href="#arrow"/></svg></button>' +
+      '</div>' +
+      '<a class="btn pri" target="_blank" rel="noopener noreferrer"><span></span><svg aria-hidden="true"><use href="#arrow"/></svg></a>' +
+    '</div>' +
+    '<p class="sr" aria-live="polite"></p>';
+  const stage = $(".pf-stage", host), tEl = $(".pf-t", host), cEl = $(".pf-c", host);
+  const bPrev = $(".prev", host), bNext = $(".next", host), go = $(".btn", host), live = $(".sr", host);
+
+  const cards = PROJECTS.map(function (p, i) {
+    const a = document.createElement("a");
+    a.className = "pf-card";
+    a.href = p.url; a.target = "_blank"; a.rel = "noopener noreferrer"; a.draggable = false;
+    a.innerHTML = '<span class="pf-thumb"><span class="pf-fb" aria-hidden="true"><b></b><i></i></span></span>' +
+      '<span class="pf-cap"><b></b><span></span></span>';
+    $(".pf-fb b", a).textContent = p.n;
+    $(".pf-cap b", a).textContent = p.n;
+    const img = new Image();
+    img.alt = ""; img.decoding = "async"; img.draggable = false;
+    img.onerror = function () { if (img.parentNode) img.parentNode.removeChild(img); };
+    img.src = p.img;
+    $(".pf-thumb", a).appendChild(img);
+    a.addEventListener("click", function (e) { if (i !== cur) { e.preventDefault(); show(i); } });
+    stage.appendChild(a);
+    return a;
+  });
+
+  function layout() {
+    const w = stage.clientWidth, vis = w < 560 ? 1 : w < 900 ? 3 : 4;
+    cards.forEach(function (c, i) {
+      const d = i - cur, a = Math.abs(d), s = d < 0 ? -1 : d > 0 ? 1 : 0, q = Math.min(a, vis + 1);
+      c.style.setProperty("--a", q);
+      c.style.setProperty("--s", s);
+      c.style.setProperty("--x", s * (q ? 56 + (q - 1) * 20 : 0));
+      c.style.zIndex = 20 - a;
+      c.classList.toggle("off", a > vis);
+      c.classList.toggle("on", a === 0);
+      c.setAttribute("aria-hidden", String(a !== 0));
+      c.setAttribute("tabindex", a === 0 ? "0" : "-1");
+    });
+  }
+  function texts() {
+    const p = PROJECTS[cur];
+    cards.forEach(function (c, i) {
+      $(".pf-fb i", c).textContent = PROJECTS[i][lang];
+      $(".pf-cap span", c).textContent = PROJECTS[i][lang];
+    });
+    tEl.textContent = p[lang];
+    cEl.textContent = pad(cur + 1) + " / " + pad(n);
+    go.setAttribute("href", p.url);
+    $("span", go).textContent = tr(lang, "pf.open");
+    bPrev.setAttribute("aria-label", tr(lang, "pf.prev"));
+    bNext.setAttribute("aria-label", tr(lang, "pf.next"));
+    bPrev.disabled = cur === 0;
+    bNext.disabled = cur === n - 1;
+    list.innerHTML = "";
+    PROJECTS.forEach(function (q, i) {
+      const li = document.createElement("li");
+      li.textContent = q.n + " " + q[lang];
+      const u = document.createElement("span");
+      u.textContent = q.url;
+      li.appendChild(u);
+      list.appendChild(li);
+    });
+  }
+  function show(i) {
+    i = Math.max(0, Math.min(n - 1, i));
+    if (i === cur) return;
+    cur = i;
+    layout(); texts();
+    live.textContent = pad(cur + 1) + " / " + pad(n) + ": " + PROJECTS[cur][lang];
+  }
+  bPrev.addEventListener("click", function () { show(cur - 1); });
+  bNext.addEventListener("click", function () { show(cur + 1); });
+  host.addEventListener("keydown", function (e) {
+    if (e.key === "ArrowLeft") { e.preventDefault(); show(cur - 1); }
+    else if (e.key === "ArrowRight") { e.preventDefault(); show(cur + 1); }
+  });
+
+  // Arrastre / swipe horizontal (touch-action: pan-y deja pasar el scroll vertical)
+  let down = false, moved = false, sx = 0;
+  stage.addEventListener("pointerdown", function (e) {
+    if (e.pointerType === "mouse" && e.button !== 0) return;
+    down = true; moved = false; sx = e.clientX;
+  });
+  stage.addEventListener("pointermove", function (e) {
+    if (down && Math.abs(e.clientX - sx) > 8) moved = true;
+  });
+  function release(e) {
+    if (!down) return;
+    down = false;
+    const dx = e.clientX - sx;
+    if (e.type === "pointerup" && Math.abs(dx) > 40) show(cur + (dx < 0 ? 1 : -1));
+  }
+  window.addEventListener("pointerup", release);
+  window.addEventListener("pointercancel", release);
+  stage.addEventListener("click", function (e) {
+    if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
+  }, true);
+  stage.addEventListener("dragstart", function (e) { e.preventDefault(); });
+  window.addEventListener("resize", layout);
+
+  pfUpdate = texts;
+  layout(); texts();
+})();
+
+/* ---------- Expansores ---------- */
+const xbtns = $$(".xbtn");
+function setOpen(btn, open) {
+  const panel = document.getElementById(btn.getAttribute("aria-controls"));
+  btn.setAttribute("aria-expanded", String(open));
+  if (panel) panel.classList.toggle("open", open);
+  const lbl = $("span", btn);
+  lbl.setAttribute("data-i18n", open ? "btn.less" : "btn.more");
+  lbl.textContent = tr(lang, open ? "btn.less" : "btn.more");
+}
+const xall = $("#xall"), xalllbl = $("#xalllbl");
+function syncAll() {
+  const jobs = xbtns.filter(function (b) { return b !== undefined; });
+  const all = jobs.every(function (b) { return b.getAttribute("aria-expanded") === "true"; });
+  xall.setAttribute("aria-pressed", String(all));
+  const k = all ? "all.close" : "all.open";
+  xalllbl.setAttribute("data-i18n", k);
+  xalllbl.textContent = tr(lang, k);
+}
+xbtns.forEach(function (b) {
+  b.addEventListener("click", function () { setOpen(b, b.getAttribute("aria-expanded") !== "true"); syncAll(); });
+});
+xall.addEventListener("click", function () {
+  const open = xall.getAttribute("aria-pressed") !== "true";
+  xbtns.forEach(function (b) { setOpen(b, open); });
+  syncAll();
+});
+
+/* habilidades: descripcion al pasar el cursor, enfocar o seleccionar */
+(function () {
+  const sec = $("#skills"); if (!sec) return;
+  const caps = $$(".sk-txt", sec), items = $$(".chips.big li", sec);
+  let pin = null, hov = null;
+  function render() {
+    const li = hov || pin;
+    items.forEach(function (x) { x.classList.toggle("on", x === pin); });
+    sec.classList.toggle("hold", !!li);
+    if (!li) return;
+    caps.forEach(function (cap) {
+      cap.textContent = "";
+      const b = document.createElement("b");
+      b.textContent = li.firstElementChild.textContent;
+      cap.appendChild(b);
+      cap.appendChild(document.createTextNode($(".sr", li).textContent));
+    });
+  }
+  items.forEach(function (li) {
+    li.addEventListener("pointerenter", function (e) { if (e.pointerType === "mouse") { hov = li; render(); } });
+    li.addEventListener("pointerleave", function (e) { if (e.pointerType === "mouse") { hov = null; render(); } });
+    li.addEventListener("focus", function () { hov = li; render(); });
+    li.addEventListener("blur", function () { hov = null; render(); });
+    li.addEventListener("click", function () { pin = pin === li ? null : li; hov = null; render(); });
+    li.addEventListener("keydown", function (e) {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      e.preventDefault(); pin = pin === li ? null : li; render();
+    });
+  });
+  document.addEventListener("pointerdown", function (e) {
+    if (pin && !e.target.closest("#skills .chips li")) { pin = null; render(); }
+  });
+  $$("[data-lang]").forEach(function (b) { b.addEventListener("click", render); });
+})();
+
+/* ---------- Fotos ---------- */
+/* anillo de herramientas: descripcion al pasar el cursor (o al tocar) */
+(function () {
+  const orb = $(".orb"); if (!orb) return;
+  const cap = $(".orb-txt", orb);
+  let cur = null;
+  function show(li) {
+    cur = li;
+    cap.textContent = "";
+    const b = document.createElement("b");
+    b.textContent = $(".tc span", li).textContent;
+    cap.appendChild(b);
+    cap.appendChild(document.createTextNode($(".sr", li).textContent));
+    orb.classList.add("hold");
+  }
+  function hide() { cur = null; orb.classList.remove("hold"); }
+  $$(".ring li", orb).forEach(function (li) {
+    li.addEventListener("pointerenter", function (e) { if (e.pointerType === "mouse") show(li); });
+    li.addEventListener("pointerleave", function (e) { if (e.pointerType === "mouse") hide(); });
+    li.addEventListener("pointerup", function (e) { if (e.pointerType === "mouse") return; if (cur === li) hide(); else show(li); });
+  });
+  document.addEventListener("pointerdown", function (e) {
+    if (cur && e.pointerType !== "mouse" && !e.target.closest(".ring li")) hide();
+  });
+
+  /* sentido y velocidad del giro segun el lado donde esta el cursor */
+  let anims = null, offs = null, rate = 1, goal = 1, raf = 0;
+  function spin() {
+    raf = 0;
+    rate += (goal - rate) * .12;
+    if (Math.abs(goal - rate) < .01) rate = goal;
+    anims.forEach(function (a) { a.updatePlaybackRate(rate); });
+    if (rate !== goal) { raf = requestAnimationFrame(spin); return; }
+    const t = anims[0].currentTime; // realinea las animaciones entre si
+    if (t !== null) anims.forEach(function (a, i) { a.currentTime = t + offs[i]; });
+  }
+  function steer(g) {
+    if (!anims) {
+      if (!orb.getAnimations) return;
+      anims = orb.getAnimations({ subtree: true }).filter(function (a) { return /^r(Spin|Bill|Fade)$/.test(a.animationName || "") && a.currentTime !== null; });
+      if (!anims.length) { anims = null; return; }
+      anims.forEach(function (a) { a.currentTime += 36000 * 1e5; }); // margen para girar hacia atras sin llegar a 0
+      offs = anims.map(function (a) { return a.currentTime - anims[0].currentTime; });
+    }
+    goal = g;
+    if (!raf) raf = requestAnimationFrame(spin);
+  }
+  orb.addEventListener("pointermove", function (e) {
+    if (e.pointerType !== "mouse") return;
+    const r = orb.getBoundingClientRect();
+    steer(-3 * Math.max(-1, Math.min(1, (e.clientX - r.left) / r.width * 2 - 1)));
+  });
+  orb.addEventListener("pointerleave", function (e) { if (e.pointerType === "mouse") steer(goal < 0 ? -1 : 1); });
+})();
+
+const slots = $$(".slot");
+slots.forEach(function (slot) {
+  const src = PHOTOS[slot.getAttribute("data-photo")];
+  if (!src) return;
+  const img = new Image();
+  img.alt = "";
+  img.decoding = "async";
+  img.onload = function () { slot.classList.add("has-img"); };
+  img.onerror = function () { if (img.parentNode) img.parentNode.removeChild(img); };
+  $(".slot-media", slot).appendChild(img);
+  img.src = src;
+});
+
+/* ---------- Reveal ---------- */
+const root = document.documentElement;
+const revEls = $$(".rv").concat(slots);
+if (root.classList.contains("anim") && hasIO) {
+  const io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+  revEls.forEach(function (el) { io.observe(el); });
+} else {
+  revEls.forEach(function (el) { el.classList.add("in"); });
+}
+
+/* ---------- Count-up ---------- */
+const cus = $$(".cu");
+function render(el, p) {
+  el.textContent = el.getAttribute("data-final").replace(/\d+/g, function (n) { return Math.round(Number(n) * p); });
+}
+if (!reduce && hasIO) {
+  cus.forEach(function (el) { el.setAttribute("data-final", el.textContent); render(el, 0); });
+  const cio = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      cio.unobserve(e.target);
+      const el = e.target, t0 = performance.now(), dur = 1700;
+      (function step(now) {
+        const x = Math.min(1, (now - t0) / dur);
+        render(el, x === 1 ? 1 : 1 - Math.pow(2, -10 * x));
+        if (x < 1) requestAnimationFrame(step);
+      })(t0);
+    });
+  }, { threshold: 0.6 });
+  cus.forEach(function (el) { cio.observe(el); });
+}
+
+/* ---------- Contador de anios (2015 -> actual) ---------- */
+const yt = $("#yt");
+if (yt) {
+  const y0 = 2015, y1 = new Date().getFullYear();
+  const mk = function (y) { const s = document.createElement("span"); s.className = "yt-y"; s.textContent = y; return s; };
+  yt.textContent = "";
+  yt.appendChild(mk(reduce || !hasIO || y1 <= y0 ? y1 : y0));
+  if (!reduce && hasIO && y1 > y0) {
+    const n = y1 - y0;
+    // duracion por paso: rapida al inicio, desacelera hasta ~800 ms
+    const dur = function (i) { return 100 + 700 * Math.pow(n > 1 ? i / (n - 1) : 1, 1.7); };
+    const run = function (i) {
+      const cur = yt.lastElementChild, d = dur(i), last = i === n - 1;
+      const next = mk(y0 + i + 1);
+      const s = document.createElement("i"); s.className = "yt-s"; cur.appendChild(s);
+      s.animate([{ transform: "scaleX(0)" }, { transform: "scaleX(1)" }], { duration: d * 0.45, easing: "cubic-bezier(.5,0,.2,1)", fill: "forwards" });
+      setTimeout(function () {
+        const out = cur.animate([{ opacity: 1, transform: "translateY(0)" }, { opacity: 0, transform: "translateY(-35%)" }], { duration: d * 0.3, easing: "ease-in", fill: "forwards" });
+        out.onfinish = function () { cur.remove(); };
+        yt.appendChild(next);
+        next.animate([{ opacity: 0, transform: "scale(1.6)" }, { opacity: 1, transform: "scale(1)" }], { duration: d * 0.9, easing: "cubic-bezier(.3,.5,.2,1)" });
+      }, d * 0.45);
+      if (!last) setTimeout(function () { run(i + 1); }, d * 1.35);
+    };
+    const yio = new IntersectionObserver(function (es) {
+      if (!es[0].isIntersecting) return;
+      yio.disconnect();
+      setTimeout(function () { run(0); }, 450);
+    }, { threshold: 0.6 });
+    yio.observe(yt);
+  }
+}
+
+/* ---------- Nav lateral (seccion activa) ---------- */
+const links = {};
+$$(".dots a").forEach(function (a) { links[a.getAttribute("data-sec")] = a; });
+if (hasIO) {
+  const sio = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      Object.keys(links).forEach(function (k) { links[k].removeAttribute("aria-current"); });
+      const a = links[e.target.id];
+      if (a) a.setAttribute("aria-current", "true");
+    });
+  }, { rootMargin: "-45% 0px -50% 0px" });
+  $$("main > section").forEach(function (s) { sio.observe(s); });
+}
+
+/* ---------- Progreso y parallax (rAF) ---------- */
+const bar = $("#bar");
+const heroPh = $(".hero-ph");
+let ticking = false;
+function frame() {
+  ticking = false;
+  const h = document.documentElement.scrollHeight - window.innerHeight;
+  bar.style.transform = "scaleX(" + (h > 0 ? Math.min(1, window.pageYOffset / h) : 0) + ")";
+  if (heroPh) heroPh.style.setProperty("--ho", Math.max(0, 1 - window.pageYOffset / (window.innerHeight * .55)).toFixed(3));
+  if (reduce) return;
+  const vh = window.innerHeight;
+  slots.forEach(function (s) {
+    const r = s.getBoundingClientRect();
+    if (r.bottom < -100 || r.top > vh + 100) return;
+    const off = ((r.top + r.height / 2) - vh / 2) / vh;
+    s.style.setProperty("--py", Math.max(-1, Math.min(1, off)) * -28 + "px");
+  });
+}
+function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(frame); } }
+window.addEventListener("scroll", onScroll, { passive: true });
+window.addEventListener("resize", onScroll);
+frame();
+})();
+</script>
+</body>
+</html>
