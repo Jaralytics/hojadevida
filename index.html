@@ -672,7 +672,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem
   <div class="wrap">
     <p class="eyebrow rv"><span>04</span><span data-i18n="nav.port">Portafolio</span></p>
     <h2 class="rv" data-i18n="pf.title">Proyectos que puedes explorar</h2>
-    <p class="lede rv" data-i18n="pf.lede">Ocho proyectos publicados. Gira el carrete y abre cualquiera para verlo en vivo.</p>
+    <p class="lede rv" data-i18n="pf.lede">Once proyectos publicados. Gira el carrete y abre cualquiera para verlo en vivo.</p>
   </div>
   <div class="pf rv" id="pf" role="region" aria-roledescription="carousel" data-i18n-aria="a.carousel" aria-label="Portafolio de proyectos" tabindex="0"></div>
   <div class="wrap">
@@ -708,7 +708,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem
             <li tabindex="0"><span>Python</span><span class="sr" data-i18n="k.d5">Scripts que limpian, cruzan y validan datos, y automatizan procesos de punta a punta sin pasos manuales.</span></li>
             <li tabindex="0"><span data-i18n="k.genai">IA generativa</span><span class="sr" data-i18n="k.d6">Lidero el frente de GenAI para Calidad en Rappi: del diseño de prompts a flujos en producción que analizan interacciones de clientes.</span></li>
             <li tabindex="0"><span data-i18n="k.auto">Automatización de procesos</span><span class="sr" data-i18n="k.d7">Solicitudes que tardaban una semana pasaron a resolverse en minutos; la revisión de horarios, de 2 días a 3-4 horas.</span></li>
-            <li tabindex="0"><span data-i18n="k.tools2">Creación de herramientas</span><span class="sr" data-i18n="k.d8">De scripts a aplicaciones completas: herramientas internas que reemplazan tareas manuales y ocho proyectos publicados en mi portafolio.</span></li>
+            <li tabindex="0"><span data-i18n="k.tools2">Creación de herramientas</span><span class="sr" data-i18n="k.d8">De scripts a aplicaciones completas: herramientas internas que reemplazan tareas manuales y once proyectos publicados en mi portafolio.</span></li>
             <li tabindex="0"><span data-i18n="k.proc">Mejora y optimización de procesos</span><span class="sr" data-i18n="k.d9">Rediseñé el proceso de vacaciones y permisos: la tasa de aprobación subió de 60% a 95%.</span></li>
             <li tabindex="0"><span>Prompt engineering</span><span class="sr" data-i18n="k.d10">Diseño y evalúo prompts hasta que el modelo responde de forma consistente: es la base de los flujos de GenAI que llevo a producción.</span></li>
             <li tabindex="0"><span>Claude Code</span><span class="sr" data-i18n="k.d11">Llevo proyectos del diseño al despliegue: yo defino el problema y valido el resultado, la IA acelera la construcción.</span></li>
@@ -948,7 +948,10 @@ const PROJECTS = [
   { n: "05", img: "img/portfolio/05.jpg", url: "dashboards/05-retail-ventas-inventario.html", es: "Retail: ventas e inventario", en: "Retail: sales and inventory" },
   { n: "06", img: "img/portfolio/06.jpg", url: "dashboards/06-fidelizacion.html", es: "Fidelización", en: "Loyalty" },
   { n: "07", img: "img/portfolio/07.jpg", url: "dashboards/07-contratacion-publica.html", es: "Contratación pública", en: "Public procurement" },
-  { n: "08", img: "img/portfolio/08.jpg", url: "https://rubik.jaralytics.com/#3x3/cfop-cruz-01", es: "Cubo paso a paso", en: "Rubik's cube, step by step" }
+  { n: "08", img: "img/portfolio/08.jpg", url: "https://rubik.jaralytics.com/#3x3/cfop-cruz-01", es: "Cubo paso a paso", en: "Rubik's cube, step by step" },
+  { n: "09", img: "img/portfolio/09.jpg", url: "https://jaralytics.github.io/Jaradraw/", es: "Jaradraw: pizarra de diagramas", en: "Jaradraw: diagram whiteboard" },
+  { n: "10", img: "img/portfolio/10.jpg", url: "https://jaralytics.github.io/SQLTeacher/", es: "SQLTeacher: SQL paso a paso", en: "SQLTeacher: SQL step by step" },
+  { n: "11", img: "img/portfolio/11.jpg", url: "https://jaralytics.github.io/DaxTeacher/", es: "DaxTeacher: DAX paso a paso", en: "DaxTeacher: DAX step by step" }
 ];
 
 /* URL de LinkedIn. Dejar "" para ocultar los enlaces. */
@@ -968,7 +971,7 @@ const T = { es: {}, en: {
   "a.home": "Go to top", "a.pdf": "Download résumé as PDF", "a.lang": "Language", "a.sections": "Sections",
   "nav.hero": "Home", "nav.impact": "Impact", "nav.profile": "Profile", "nav.exp": "Experience",
   "nav.port": "Portfolio", "pf.title": "Projects you can explore",
-  "pf.lede": "Eight published projects. Browse the carousel and open any of them live.",
+  "pf.lede": "Eleven published projects. Browse the carousel and open any of them live.",
   "pf.open": "View project", "pf.prev": "Previous project", "pf.next": "Next project", "a.carousel": "Project portfolio", "a.tools": "Tools", "t.genia": "GenAI", "t.ia": "AI", "t.hint": "Hover over a tool",
   "t.d0": "I migrated a full P&L to Power BI and design dashboards that operations check daily.", "t.d1": "With Power Pivot I took a P&L from a one-year lag to monthly updates.",
   "t.d2": "I write and optimize the queries that feed operations' recurring reporting.", "t.d3": "Data models and SQL queries that feed the CX dashboards at Rappi.",
@@ -1050,7 +1053,7 @@ const T = { es: {}, en: {
   "k.d5": "Scripts that clean, join and validate data, and automate processes end to end with no manual steps.",
   "k.d6": "I lead the GenAI workstream for Quality at Rappi: from prompt design to production flows that analyze customer interactions.",
   "k.d7": "Requests that took a week are now resolved in minutes; schedule review went from 2 days to 3-4 hours.",
-  "k.d8": "From scripts to full applications: internal tools that replace manual tasks and eight published projects in my portfolio.",
+  "k.d8": "From scripts to full applications: internal tools that replace manual tasks and eleven published projects in my portfolio.",
   "k.d9": "I redesigned the leave and time-off process: the approval rate rose from 60% to 95%.",
   "k.d10": "I design and evaluate prompts until the model responds consistently: it is the basis of the GenAI flows I take to production.",
   "k.d11": "I take projects from design to deployment: I define the problem and validate the result, AI speeds up the build.",
